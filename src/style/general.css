@@ -12,7 +12,7 @@ img {
 }
 
 :root {
-  --black: #111010;
+  --black: rgb(17, 16, 16);
   --white: #fcf7eb;
   --box-grey: #28292a;
   --text-grey: #8e8e8e;
@@ -99,7 +99,10 @@ h5,
   font-family: "helvetica_neue_lt_std95_black";
   font-weight: normal;
 }
-p {
+p,
+a,
+ul,
+li {
   font-family: "helvetica_neueregular";
   font-weight: normal;
 }
