@@ -1,0 +1,169 @@
+---
+
+---
+
+<header>
+  <div class="logo">
+    <a href="/">
+      <img src="/public/svg/logo.svg" alt="Tankestrøms logo" />
+    </a>
+  </div>
+  <nav>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <span>MENU</span>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="/">FORSIDE</a></li>
+        <li><a href="/eventlist.astro">EVENTS</a></li>
+        <li><a href="/">T-POSEN</a></li>
+        <li><a href="/abaout">OM OS</a></li>
+        <li><a href="/kontakt">KONTAKT</a></li>
+      </ul>
+      <div class="socials"></div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  //@ts-nocheck
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("nav");
+    const menu = document.querySelector(".menu");
+
+    burger.addEventListener("click", burgerClick);
+    function burgerClick() {
+      burger.classList.toggle("active");
+      nav.classList.toggle("active");
+      menu.classList.toggle("active");
+    }
+
+    menu.addEventListener("click", menuClick);
+    function menuClick() {
+      burger.classList.remove("active");
+      nav.classList.remove("active");
+      menu.classList.remove("active");
+    }
+  });
+</script>
+
+<style>
+  /* Header */
+  header {
+    background-color: rgba(17, 16, 16, 0.4); /* sort med 40% opacitet */
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    z-index: 200;
+  }
+
+  /* Logo */
+  .logo img {
+    max-width: 300px;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    z-index: 100;
+  }
+
+  .burger span {
+    font-family: "helvetica_neue_lt_std75_bold";
+    font-size: 22px;
+    margin-top: 5px;
+  }
+
+  .burger .line {
+    width: 66px;
+    height: 5px;
+    background: var(--white);
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+
+  /* Menu */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cta);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 50;
+  }
+
+  .menu.active {
+    transform: translateY(0);
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .menu li {
+    font-size: 20px;
+    color: var(--primary_text);
+    padding: 15px 0;
+    border-bottom: 2px solid var(--primary_text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: var(--primary_text);
+    font-weight: bold;
+  }
+
+  .menu span {
+    font-size: 20px;
+  }
+
+  /* burger-linjernes classes der kaldes i js */
+  .burger.active .line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+    transition: 0.25s linear;
+  } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
+
+  .burger.active .line:nth-child(2) {
+    transform: translateY(-7px) rotate(-45deg);
+    transition: 0.25s linear;
+  } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
+
+  .burger.active span {
+    display: none;
+  }
+
+  /* Sociale medier */
+  .socials {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .socials img {
+    width: 30px;
+    margin: 0 10px;
+  }
+</style>
