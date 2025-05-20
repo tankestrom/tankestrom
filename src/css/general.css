@@ -1,0 +1,41 @@
+/*************** Reset *********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+:root {
+  --black: #000;
+  --white: #fcf7eb;
+  --box-grey: #28292a;
+  --text-grey: #8e8e8e;
+  --old-logo: #1a108d;
+  --red: #d23e3e;
+  --dark-orange: #e8511f;
+  --orange: #fe6500;
+  --pruple: #803192;
+  --lighter-blue: #2109ff;
+  --dark-purple: #4b0750;
+  --orange-grad: linear-gradient(145.82deg, #f89046 3.39%, #feacc0 100%);
+  --rainbow-grad: linear-gradient(
+    90deg,
+    #c6dfeb 0%,
+    #bec0d6 16.6%,
+    #dabed7 34%,
+    #f4ccbd 51%,
+    #f7ebd4 80%,
+    #cadfd0 100%,
+    #797979 100%
+  );
+  --purple-grad: linear-gradient(136.12deg, #af79e4 0%, #8f1731 94.9%);
+  --green-grad: linear-gradient(136.12deg, #b0e479 0%, #178f81 94.9%);
+}
+
+/*************** Global Styles *********************/
