@@ -12,7 +12,7 @@ img {
 }
 
 :root {
-  --black: #000;
+  --black: #111010;
   --white: #fcf7eb;
   --box-grey: #28292a;
   --text-grey: #8e8e8e;
@@ -36,6 +36,10 @@ img {
   );
   --purple-grad: linear-gradient(136.12deg, #af79e4 0%, #8f1731 94.9%);
   --green-grad: linear-gradient(136.12deg, #b0e479 0%, #178f81 94.9%);
+}
+
+body {
+  background-color: var(--black);
 }
 
 /*************** Global Styles *********************/
@@ -161,4 +165,13 @@ p {
   .p-smaller {
     font-size: 14px;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: var(--white);
 }
