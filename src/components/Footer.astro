@@ -1,0 +1,125 @@
+---
+// Ingen scripting nødvendig her
+---
+
+<footer class="footer">
+  <div class="newsletter">
+    <h2>TILMELD DIG VORES NYHEDSBREV</h2>
+    <form>
+      <input type="email" placeholder="INDTAST DIN EMAIL…" />
+      <button type="submit">→</button>
+    </form>
+  </div>
+
+  <div class="footer-grid">
+    <div>
+      <h3>ADRESSE</h3>
+      <p>Gammel kongevej 3E<br />1610 København V<br />Danmark</p>
+    </div>
+
+    <div>
+      <h3>KONTAKT</h3>
+      <p>+45 33 42 21 00</p>
+      <a href="mailto:connect@adviceagency.com">connect@adviceagency.com</a>
+    </div>
+
+    <div>
+      <h3>SOCIALT</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-brand">
+    <h1>TANKESTRØM</h1>
+  </div>
+</footer>
+
+<style>
+  /* style/general.css */
+
+  .footer {
+    background-color: #1a1a1a;
+    border:;
+    color: white;
+    padding: 4rem 2rem;
+    font-family: sans-serif;
+  }
+
+  .newsletter {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .newsletter h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .newsletter input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+    max-width: 100%;
+  }
+
+  .newsletter button {
+    background: linear-gradient(
+      to right,
+      #ff7b00,
+      #4f46e5
+    ); /* orange til lilla */
+    border: none;
+    padding: 0.75rem;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .footer-grid h3 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .footer-grid a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-grid a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-brand h1 {
+    font-size: 6rem;
+    text-align: center;
+    opacity: 0.05;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    background: linear-gradient(to right, #ff7b00, #4f46e5);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+</style>
