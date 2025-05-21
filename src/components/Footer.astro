@@ -1,0 +1,151 @@
+---
+// Ingen scripting nødvendig her
+---
+
+<footer>
+  <div class="footer">
+    <div class="newsletter">
+      <h5>TILMELD DIG VORES NYHEDSBREV</h5>
+      <form>
+        <input type="email" placeholder="INDTAST DIN EMAIL…" />
+        <button type="submit">→</button>
+      </form>
+    </div>
+    <div class="footer_grid">
+      <div>
+        <h5>ADRESSE</h5>
+        <p>Gammel kongevej 3E<br />1610 København V<br />Danmark</p>
+      </div>
+
+      <div>
+        <h5>KONTAKT</h5>
+        <p>+45 33 42 21 00</p>
+        <a href="mailto:connect@adviceagency.com">connect@adviceagency.com</a>
+      </div>
+
+      <div class="socials">
+        <h5>SOCIALT</h5>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer_brand">
+      <h1>TANKESTRØM</h1>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--box-grey);
+    border: var(--rainbow-grad) 1px solid;
+    color: var(--white);
+    padding-top: 3rem;
+  }
+
+  .newsletter {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .newsletter h5 {
+    margin-bottom: 1rem;
+  }
+
+  .newsletter form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .newsletter input {
+    padding: 0.5rem;
+    border: var(--white) 1px solid; /*--HUSK AT RETTE TIL GRADIENT*/
+    border-radius: 25px;
+    width: 250px;
+    max-width: 100%;
+    background-color: var(--box-grey);
+  }
+
+  .newsletter button {
+    padding: 0.5rem 1.5rem;
+    border: var(--white) 1px solid; /*--HUSK AT RETTE TIL GRADIENT*/
+    border-radius: 15px;
+    background-color: var(--box-grey);
+    color: var(--white);
+    cursor: pointer;
+  }
+
+  .footer_grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: center;
+    list-style: none;
+  }
+
+  .footer_grid h5 {
+    margin: 1rem;
+  }
+
+  .footer-grid ul,
+  li {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    /*--INDSÆT I STYLE - SEJ HOVER*/
+    color: var(--white);
+    position: relative;
+    text-decoration: none;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    left: 0;
+    bottom: 0px;
+    width: 0%;
+    background: var(--white);
+    transition: width 0.3s;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  .footer_brand h1 {
+    width: 100vw; /*vw = viewport width*/
+    text-align: center;
+    opacity: 0.2;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    background: linear-gradient(to right, #ff7b00, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent; /*DET DER GØR DEN ER GRADIENT*/
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 850px) {
+    .footer_grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
