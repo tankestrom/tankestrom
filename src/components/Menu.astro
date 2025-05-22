@@ -5,7 +5,16 @@
 <header>
   <div class="logo">
     <a href="/">
-      <img src="/svg/logo.svg" alt="Tankestrøms logo" />
+      <img
+        src="/svg/logo.svg"
+        class="logo-w-text"
+        alt="Tankestrøms logo med tekst"
+      />
+      <img
+        src="/svg/logo-icon.svg"
+        class="logo-icon"
+        alt="Tankestrøms logo uden tekst"
+      />
     </a>
   </div>
   <nav>
@@ -22,7 +31,6 @@
         <li><a href="/abaout">OM OS</a></li>
         <li><a href="/kontakt">KONTAKT</a></li>
       </ul>
-      <div class="socials"></div>
     </div>
   </nav>
 </header>
@@ -51,37 +59,57 @@
 </script>
 
 <style>
-  /* Header */
+  /* Header menu*/
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: rgba(17, 16, 16, 0.4); /* sort med 40% opacitet */
     color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 60px;
+    padding: 20px;
     z-index: 200;
   }
 
-  /* Logo */
-  .logo img {
-    max-width: 300px;
+  body {
+    padding-top: 98px; /* samme højde som header */
   }
 
+  /* Logoer */
+  .logo {
+    position: relative;
+    z-index: 201;
+  }
+  .logo-w-text {
+    display: none;
+    z-index: 201;
+  }
+  .logo-icon {
+    width: 57.5px;
+    height: 57.5px;
+    z-index: 201;
+  }
+
+  /* Burger "ikon" */
   .burger {
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
     text-align: center;
-    z-index: 100;
+    position: relative;
+    z-index: 201;
   }
-
+  /* "MENU" teksten i burgerikonet */
   .burger span {
     font-family: "helvetica_neue_lt_std75_bold";
     font-size: 22px;
     margin-top: 5px;
   }
-
+  /* Linjerne i burgerikonet */
   .burger .line {
     width: 66px;
     height: 5px;
@@ -90,52 +118,46 @@
     transition: 0.3s;
   }
 
-  /* Menu */
+  /* Drop down menu */
   .menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--cta);
+    background: var(--box-grey);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transform: translateY(-100%);
     transition: transform 0.5s ease-in-out;
-    z-index: 50;
+    z-index: 20;
   }
-
   .menu.active {
     transform: translateY(0);
   }
-
   .menu ul {
     list-style: none;
     padding: 0;
     text-align: center;
     width: 100%;
   }
-
   .menu li {
     font-size: 20px;
-    color: var(--primary_text);
+    color: var(--white);
     padding: 15px 0;
-    border-bottom: 2px solid var(--primary_text);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     justify-content: center;
   }
-
   .menu a {
     text-decoration: none;
-    color: var(--primary_text);
+    color: var(--white);
     font-weight: bold;
   }
-
   .menu span {
     font-size: 20px;
   }
@@ -155,15 +177,17 @@
     display: none;
   }
 
-  /* Sociale medier */
-  .socials {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-
-  .socials img {
-    width: 30px;
-    margin: 0 10px;
+  @media screen and (min-width: 850px) {
+    header {
+      padding: 30px 60px;
+    }
+    /* Logo */
+    .logo-w-text {
+      display: block;
+      max-width: 300px;
+    }
+    .logo-icon {
+      display: none;
+    }
   }
 </style>
