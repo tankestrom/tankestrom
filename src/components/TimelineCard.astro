@@ -1,0 +1,41 @@
+---
+const { number, title, text, align } = Astro.props;
+---
+
+<article class={`timeline-card ${align}`}>
+  <h1 class="no">{number}</h1>
+  <h4>{title}</h4>
+  <p>{text}</p>
+</article>
+
+<style>
+  .timeline-card {
+    margin: 15px;
+    background-color: var(--box-grey);
+    padding: 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* gradient border-trick */
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border: 2px solid transparent;
+  }
+  .no {
+    text-align: end;
+    background: var(--logo-grad); /* lægger gradient bag teksten */
+    -webkit-background-clip: text; /* betyder brug gradienten som fill i tekst */
+    -webkit-text-fill-color: transparent; /* gør selve tekstfarven gennemsigtig, så kun gradienten vises */
+  }
+  @media screen and (min-width: 850px) {
+    .timeline-card:nth-child(odd) {
+      justify-self: end;
+    }
+    .timeline-card:nth-child(even) {
+      justify-self: start;
+    }
+  }
+</style>

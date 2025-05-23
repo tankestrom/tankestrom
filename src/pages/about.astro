@@ -2,8 +2,109 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import AboutHero from "../components/AboutHero.astro";
+import TimelineCard from "../components/TimelineCard.astro";
+
+const timeline = [
+  {
+    number: "#01",
+    title: "Højskolen startede tankestrømmen",
+    text: "TankeStrøm blev født en mild forårsaften i 2023 på Testrup Højskole, hvor en lille gruppe elever og lærere samledes under tagryggen i undervisningslokalet 'Loftet'. Formålet var meget simpelt: at blive klogere - sammen. Hver måned blev et nyt emne præsenteret af en lærer eller elev, og efterfølgende åbnede vi op for fri diskussion, hvor tankerne virkelig kunne strømme frit.",
+  },
+  {
+    number: "#02",
+    title: "TankeStrøm tænder for lyder",
+    text: "Efter højskoleopholdet besluttede flere af os - Simon Løffler Puggaard, Anna-Barbara Weile og Esben Rohan Christensen - at fortsætte arbejdet med TankeStrøm. Den 22. februar 2024 udgav vi vores første officielle podcast, 'Kvantefysik møder Queerness', og fejrede det med et åbent event på Roland Bar ved Københavns Universitet. I dette podcast og ved eventet udforskede vi, hvordan naturvidenskab og humaniora kan krydse hinanden og tilbyde nye perspektiver på at navigere paradokser - både i kvantefysik og queer-teori.",
+  },
+  {
+    number: "#03",
+    title: "TankeStrøm skaber rum for tanke",
+    text: "I maj 2024 afholdt vi et nyt event og havde podcastrelease om temaet 'Hvordan teknologien er flyttet ind i mennesket'. Vi inviterede vores egen filosof Björk Mo van Dijk til at dele sine indsigter om teknologiens intime relation til mennesket, og hvordan vi må forholde os til denne nye virkelighed for at navigere teknologien på en sund måde. Dette event blev afholdt i både København og Aarhus med interaktive diskussioner, herunder Fishbowl-metode, som skabte et trygt rum, hvor alle deltagere kunne komme til orde og dele deres tanker.",
+  },
+  {
+    number: "#04",
+    title: "Ord og natur med TankeStrøm",
+    text: "Den 2. juni 2024 var vi i Øens Have på Refshaleøen med et event om Naturens poesi, som blev støttet med midler fra Snabslanten. Her læste TankeStrøms egen litterat, Marcus Agerschou-Jensen, udvalgte digte fra nyere dansk naturpoesi, hvorefter deltagerne fik mulighed for at skabe deres egne tekster. Senere på sommeren udkom podcasten om samme emne, hvor vi talte med Claus Emmeche – biolog og naturfilosof.",
+  },
+  {
+    number: "#05",
+    title: "TankeStrøm til Folkemødet",
+    text: "Kort efter Øens Have-eventet deltog vi i Folkemødet på Bornholm i juni 2024, hvor vi fik tildelt et wildcard til F&P-teltet. Her afholdt vi en interaktiv debat om alt fra kvantecomputere til sexrobotter, inspireret af vores podcast om teknologi og menneske.",
+  },
+  {
+    number: "#06",
+    title: "TankeStrøm Skaber dialog på skolerne",
+    text: "I efteråret 2024 var TankeStrøm mindre synlig på podcast- og eventfronten, men vi var meget aktive med oplæg på aftenskoler, gymnasier og højskoler, hvor vi fortsatte vores arbejde med at udforske tværfaglige temaer.",
+  },
+  {
+    number: "#07",
+    title: "Kaos, kontrol og klubhus",
+    text: "Forårssemestret 2025 blev skudt igang med vores eget event om Kaos & Kontrol - hvordan vi navigerer det uforudsigelige. Det blev afholdt på Vartov, som fungerer som vores nye 'klubhus' til fremtidige events. Her havde vi både en talk med en kaospiloten Mathias Switzer og religionsvidenskaber Ellen Møller, samt en skrive-workshop afholdt af Marcus.",
+  },
+  {
+    number: "#08",
+    title: "Vi Sætter strøm til sommeren",
+    text: "Sommeren 2025 bringer nye spændende events (bl.a. Folkemødet 2025!) og podcasts, som vi har arbejdet på i længere tid. Fra udforskning af naturens mysterier til at navigere i kaos - vi er klar til at bringe flere fællesskaber og ideer til live. Stay tuned!",
+  },
+];
 ---
 
 <Layout>
   <AboutHero />
+  <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
+  <section class="timeline">
+    {
+      timeline.map((item, index) => (
+        <TimelineCard
+          number={item.number}
+          title={item.title}
+          text={item.text}
+          align={index % 2 === 0 ? "right" : "left"}
+        />
+      ))
+    }
+    <!-- <TimelineCard
+      number="#1"
+      title="Højskolen startede tankestrømmen"
+      text="TankeStrøm blev født en mild forårsaften i 2023 på Testrup Højskole, hvor en lille gruppe elever og lærere samledes under tagryggen i undervisningslokalet 'Loftet'. Formålet var meget simpelt: at blive klogere - sammen. Hver måned blev et nyt emne præsenteret af en lærer eller elev, og efterfølgende åbnede vi op for fri diskussion, hvor tankerne virkelig kunne strømme frit."
+    /> -->
+  </section>
 </Layout>
+
+<style>
+  h3 {
+    margin: 15px;
+  }
+  @media screen and (min-width: 850px) {
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 250px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative; /* nødvendigt for ::before */
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      background: var(--logo-grad);
+      z-index: 0;
+    }
+
+    .timeline-card {
+      height: auto;
+      width: 100%;
+    }
+    .timeline-card.right {
+      justify-self: end;
+    }
+
+    .timeline-card.left {
+      justify-self: start;
+    }
+  }
+</style>

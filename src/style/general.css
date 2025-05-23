@@ -24,6 +24,7 @@ img {
   --lighter-blue: #2109ff;
   --dark-purple: #4b0750;
   --orange-grad: linear-gradient(145.82deg, #f89046 3.39%, #feacc0 100%);
+  --logo-grad: linear-gradient(90deg, #ff944d 0%, #7a4587 49.04%, #4d58ea 100%);
   --rainbow-grad: linear-gradient(
     90deg,
     #c6dfeb 0%,
@@ -105,6 +106,7 @@ ul,
 li {
   font-family: "helvetica_neueregular";
   font-weight: normal;
+  line-height: 1.2;
 }
 
 /* kursiv */
