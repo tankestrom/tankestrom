@@ -1,0 +1,82 @@
+---
+
+---
+
+<section>
+  <div class="overlay">
+    <div class="title-wrapper">
+      <h1 class="om">OM</h1>
+      <h1 class="tankestrom">TANKESTRØM</h1>
+    </div>
+    <p>
+      I en verden, hvor viden ofte pakkes ind i siloer, skaber vi et frirum.
+      TankeStrøm opstod ud fra ønsket om at gøre viden til noget levende, fælles
+      og legende - noget, vi kan mødes omkring, uanset faglig baggrund. Vi tror
+      på, at store indsigter opstår, når naturvidenskab møder filosofi, når
+      kunst møder kvantefysik, og når vi tør stille spørgsmål sammen.
+    </p>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    height: 100vh;
+    background-image: url("/img/about-hero.webp");
+    background-size: cover;
+    background-position: center;
+  }
+  /* mørkere baggrundslag med 50% opacity */
+  section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* sort med 50% opacity */
+    z-index: 0;
+  }
+  .overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0px 15px;
+  }
+  .title-wrapper {
+    padding-top: 200px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 13vw, 3.25rem); /* skalerer responsivt */
+  }
+  p {
+    padding-bottom: 30px;
+  }
+
+  @media screen and (min-width: 850px) {
+    .overlay {
+      padding: 60px 60px 40px;
+    }
+    .title-wrapper {
+      display: block; /* <--- vigtig ændring */
+      padding-top: 100px;
+    }
+    .om {
+      text-align: left;
+    }
+    .tankestrom {
+      text-align: right;
+    }
+    .om,
+    .tankestrom {
+      font-size: clamp(6rem, 11vw, 9.25rem); /* skalerer responsivt */
+    }
+
+    p {
+      max-width: 600px;
+      margin-left: auto; /* skubber teksten til højre */
+      text-align: right;
+      padding-bottom: 40px;
+    }
+  }
+</style>
