@@ -31,11 +31,12 @@ const { number, title, text, align } = Astro.props;
     -webkit-text-fill-color: transparent; /* gør selve tekstfarven gennemsigtig, så kun gradienten vises */
   }
   @media screen and (min-width: 850px) {
-    .timeline-card:nth-child(odd) {
-      justify-self: end;
-    }
-    .timeline-card:nth-child(even) {
+    .timeline-card.left {
       justify-self: start;
+    }
+
+    .timeline-card.right {
+      justify-self: end;
     }
   }
 </style>

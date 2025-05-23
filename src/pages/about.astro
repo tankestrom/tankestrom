@@ -53,11 +53,12 @@ const timeline = [
   <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
   <section class="timeline">
     {
-      timeline.map((item) => (
+      timeline.map((item, index) => (
         <TimelineCard
           number={item.number}
           title={item.title}
           text={item.text}
+          align={index % 2 === 0 ? "left" : "right"}
         />
       ))
     }
@@ -97,8 +98,7 @@ const timeline = [
     }
 
     .timeline-card {
-      height: auto;
-      width: 100%;
+      max-width: 500px;
     }
   }
 </style>
