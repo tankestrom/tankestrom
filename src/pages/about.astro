@@ -53,12 +53,11 @@ const timeline = [
   <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
   <section class="timeline">
     {
-      timeline.map((item, index) => (
+      timeline.map((item) => (
         <TimelineCard
           number={item.number}
           title={item.title}
           text={item.text}
-          align={index % 2 === 0 ? "right" : "left"}
         />
       ))
     }
@@ -80,6 +79,8 @@ const timeline = [
       grid-template-columns: 1fr 1fr;
       gap: 30px 250px;
       max-width: 1200px;
+      grid-auto-rows: auto;
+      align-items: start;
       margin: 0 auto;
       position: relative; /* nødvendigt for ::before */
     }
@@ -98,13 +99,6 @@ const timeline = [
     .timeline-card {
       height: auto;
       width: 100%;
-    }
-    .timeline-card.right {
-      justify-self: end;
-    }
-
-    .timeline-card.left {
-      justify-self: start;
     }
   }
 </style>
