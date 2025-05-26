@@ -51,21 +51,24 @@ const timeline = [
 
 <Layout>
   <AboutHero />
-  <h3 class="margin">VORES VISION</h3>
-  <div class="grid_1-1">
-    <p>
-      TankeStrøm er et tværfagligt vidensfællesskab, der vil gøre videnskab
-      levende, relevant og tilgængelig for alle. Vi tror på, at naturvidenskaben
-      får sin største styrke, når den møder andre fagligheder, og når viden
-      deles åbent og i dialog. Inspireret af højskolens værdier skaber vi et
-      inkluderende fællesskab med plads til faglig fordybelse, nysgerrighed og
-      dannelse - hvor specialister og generalister sammen udforsker og forstår
-      verden bedre. Gennem podcasts, live events, undervisning og digitale
-      platforme inviterer vi alle til at deltage aktivt og opleve, hvordan
-      videnskab kan berige både hverdagen og samfundet.
-    </p>
-    <img src="/public/img/placeholder-image.webp" alt="" class="order-1" />
-  </div>
+  <section class="vision-section">
+    <h3>VORES VISION</h3>
+    <div class="grid_1-1">
+      <p>
+        TankeStrøm er et tværfagligt vidensfællesskab, der vil gøre videnskab
+        levende, relevant og tilgængelig for alle. Vi tror på, at
+        naturvidenskaben får sin største styrke, når den møder andre
+        fagligheder, og når viden deles åbent og i dialog. Inspireret af
+        højskolens værdier skaber vi et inkluderende fællesskab med plads til
+        faglig fordybelse, nysgerrighed og dannelse - hvor specialister og
+        generalister sammen udforsker og forstår verden bedre. Gennem podcasts,
+        live events, undervisning og digitale platforme inviterer vi alle til at
+        deltage aktivt og opleve, hvordan videnskab kan berige både hverdagen og
+        samfundet.
+      </p>
+      <img src="/public/img/placeholder-image.webp" alt="" class="order-1" />
+    </div>
+  </section>
   <section class="timeline-section">
     <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
     <h5>
@@ -175,15 +178,57 @@ const timeline = [
   </section>
   <section class="future-section">
     <h3>FØLG MED I FREMTIDENS LÆRING</h3>
+    <div class="flex">
+      <div class="circle">
+        <img src="" alt="" />
+      </div>
+      <div class="box">
+        <h5>Har du spørgsmål eller brug for mere information?</h5>
+        <p>
+          Uanset om du vil vide mere om vores events, ønsker at booke TankeStrøm
+          til undervisningen, eller har andre spørgsmål, er du altid velkommen
+          til at sende os en mail. Vi svarer hurtigt og hjælper dig gerne
+          videre!
+        </p>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="circle">
+        <img src="" alt="" />
+      </div>
+      <div class="box">
+        <h5>Følg os på Instagram!</h5>
+        <p>
+          Bliv en del af TankeStrøms fællesskab til dagligt, hvor vi deler
+          inspirerende, inviterende og engagerende indhold. Her kan du få et
+          indblik i vores events, spændende idéer og alt det, der gør læring og
+          formidling levende. Kom med på rejsen – vi glæder os til at møde dig!
+        </p>
+      </div>
+    </div><div class="flex">
+      <div class="circle">
+        <img src="" alt="" />
+      </div>
+      <div class="box">
+        <h5>Lyt til TankeStrøms podcast på Spotify!</h5>
+        <p>
+          Tag dig tid til at fordybe dig i spændende samtaler og få eksperters
+          unikke perspektiver på viden, læring og forståelse. Vores podcast
+          inviterer dig med bag facaden, hvor komplekse idéer bliver gjort
+          tilgængelige og inspirerende. Perfekt til dig, der elsker at udforske
+          nye tanker og blive klogere - når det passer dig.
+        </p>
+      </div>
+    </div>
   </section>
 
   <style>
+    .vision-section {
+      margin: 15px;
+    }
     .grid_1-1 {
       display: grid;
       gap: 10px;
-    }
-    .margin {
-      margin: 0px 15px;
     }
     .order-1 {
       order: -1;
@@ -192,6 +237,9 @@ const timeline = [
       margin: 15px;
     }
     .timeline-section {
+      margin: 15px;
+    }
+    .future-section {
       margin: 15px;
     }
     @media screen and (min-width: 850px) {
