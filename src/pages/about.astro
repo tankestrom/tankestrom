@@ -66,7 +66,7 @@ const timeline = [
         deltage aktivt og opleve, hvordan videnskab kan berige både hverdagen og
         samfundet.
       </p>
-      <img src="/public/img/placeholder-image.webp" alt="" class="order-1" />
+      <img src="/public/img/webp/vision.webp" alt="" class="order-1" />
     </div>
   </section>
   <section class="timeline-section">
@@ -108,7 +108,7 @@ const timeline = [
     </p>
     <div class="grid_1-1">
       <ProfileCard
-        img="/public/img/placeholder-image.webp"
+        img="/public/img/webp/esben.webp"
         img_text="Esben Rohan Christensen"
         name="Esben"
       >
@@ -132,7 +132,7 @@ const timeline = [
         </p>
       </ProfileCard>
       <ProfileCard
-        img="/public/img/placeholder-image.webp"
+        img="/public/img/webp/simon.webp"
         img_text="Simon Løffler Puggaard"
         name="Simon"
       >
@@ -154,7 +154,7 @@ const timeline = [
         </p>
       </ProfileCard>
       <ProfileCard
-        img="/public/img/placeholder-image.webp"
+        img="/public/img/webp/anna-barbara.webp"
         img_text="Anna-Barbara Weile"
         name="Anna-Barbara"
       >
@@ -223,8 +223,19 @@ const timeline = [
   </section>
 
   <style>
-    .vision-section {
-      margin: 15px;
+    section {
+      padding: 40px 15px;
+    }
+    h3 {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      background:
+        linear-gradient(var(--black), var(--black)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border-bottom: 2px solid transparent;
+    }
+    .vision-section img {
+      border-radius: 10px;
     }
     .grid_1-1 {
       display: grid;
@@ -233,16 +244,14 @@ const timeline = [
     .order-1 {
       order: -1;
     }
-    .founders {
-      margin: 15px;
-    }
-    .timeline-section {
-      margin: 15px;
-    }
-    .future-section {
-      margin: 15px;
+    .timeline-section h5 {
+      padding: 20px 0px 10px;
     }
     @media screen and (min-width: 850px) {
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
       .grid_1-1 {
         grid-template-columns: 1fr 1fr;
         gap: 50px;
@@ -250,7 +259,18 @@ const timeline = [
         margin: 0 auto;
         padding: 0 15px;
       }
-
+      .order-1 {
+        order: 0;
+      }
+      .vision-section img {
+        width: 400px;
+        height: auto;
+        margin: 50px auto;
+        border-radius: 20px;
+      }
+      .vision-section p {
+        align-self: center;
+      }
       .timeline {
         display: grid;
         grid-template-columns: 1fr 1fr;
