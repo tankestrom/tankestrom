@@ -1,0 +1,105 @@
+---
+
+---
+
+<section class="hero">
+  <div class="overlay">
+    <div class="title-wrapper">
+      <h1 class="en_tanke">EN TANKE</h1>
+      <h1 class="starter_strommen">STARTER STRØMMEN</h1>
+    </div>
+    <p>
+      Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
+      i fællesskaber, hvor viden, refleksion og personlig udvikling hænger sammen.
+      <br />Bliv en del af samtalen – og se, hvad der rykker i dig.
+    </p>
+    <div class="grid_1-1">
+      <div>
+        <p>indsæt btn</p>
+      </div>
+
+      <div>
+        <p>indsæt btn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    background-image: url("/img/about-hero.webp");
+    background-size: cover;
+    background-position: center;
+  }
+  /* mørkere baggrundslag med 50% opacity */
+  section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* sort med 50% opacity */
+    z-index: 0;
+  }
+  .overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0px 15px;
+  }
+  .title-wrapper {
+    padding-top: 200px;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 13vw, 3.25rem); /* skalerer responsivt */
+  }
+
+  p {
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 850px) {
+    .title-wrapper {
+      display: block; /* <--- vigtig ændring */
+      padding-top: 100px;
+    }
+    .en_tanke {
+      text-align: left;
+    }
+    .starter_strommen {
+      text-align: right;
+    }
+    .en_tanke,
+    .starter_strommen {
+      font-size: clamp(6rem, 11vw, 9.25rem); /* skalerer responsivt */
+    }
+    /* Removed invalid font-size line */
+
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  p {
+    max-width: 600px;
+    margin-left: auto; /* skubber teksten til højre */
+    text-align: right;
+    padding-bottom: 40px;
+  }
+</style>
