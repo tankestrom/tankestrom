@@ -1,5 +1,14 @@
 ---
-const { icon, icon_text, headline, text, class: className } = Astro.props;
+import Button from "./Button.astro";
+const {
+  icon,
+  icon_text,
+  headline,
+  text,
+  class: className,
+  buttonLabel,
+  buttonHref,
+} = Astro.props;
 ---
 
 <article class={`action-card ${className}`}>
@@ -11,6 +20,7 @@ const { icon, icon_text, headline, text, class: className } = Astro.props;
     <p>
       {text}
     </p>
+    <Button href={buttonHref} label={buttonLabel} />
   </div>
 </article>
 
