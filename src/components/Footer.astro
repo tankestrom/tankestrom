@@ -33,9 +33,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer_brand">
-      <h1>TANKESTRØM</h1>
-    </div>
+    <h1>TANKESTRØM</h1>
   </div>
 </footer>
 
@@ -123,8 +121,9 @@
     width: 100%;
   }
 
-  .footer_brand h1 {
+  h1 {
     width: 100vw; /*vw = viewport width*/
+    font-size: 13.5vw;
     text-align: center;
     opacity: 0.2;
     margin-top: 2rem;
@@ -134,13 +133,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; /*DET DER GØR DEN ER GRADIENT*/
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    box-sizing: border-box;
+    white-space: nowrap; /* forhindrer linjeskift */
+    overflow: hidden;
+    line-height: 0.77;
   }
 
   @media screen and (min-width: 850px) {
