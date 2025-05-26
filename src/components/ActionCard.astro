@@ -1,8 +1,8 @@
 ---
-const { icon, icon_text, headline, text } = Astro.props;
+const { icon, icon_text, headline, text, class: className } = Astro.props;
 ---
 
-<article class="action-card">
+<article class={`action-card ${className}`}>
   <div class="circle">
     <img src={icon} alt={icon_text} />
   </div>
@@ -14,4 +14,87 @@ const { icon, icon_text, headline, text } = Astro.props;
   </div>
 </article>
 
-<style></style>
+<style>
+  .action-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px 0;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .action-card.reverse {
+    flex-direction: row-reverse; /* spejlvender pink row */
+  }
+
+  .action-card::before {
+    /* linje bag cirklen */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 140px; /* bredde på cirklen */
+    width: 400px;
+    height: 2px;
+    background: var(--orange);
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+  .action-card.reverse::before {
+    /* linje bag cirklen i reverse/spejlvendt */
+    left: auto;
+    right: 140px;
+    background: var(--pink);
+  }
+  .circle {
+    flex-shrink: 0; /* forhindrer cirklen i at krympe */
+    width: 140px;
+    height: 140px;
+    border-radius: 50%; /* ved cirkler */
+    background-color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .circle img {
+    width: 60px;
+    height: auto;
+  }
+
+  .box {
+    background-color: var(--box-grey);
+    border-radius: 20px;
+    padding: 40px 30px;
+    border: 1px solid var(--orange);
+    max-width: 650px;
+    flex-grow: 1;
+    background: var(--box-grey);
+  }
+
+  /* farve-varianter */
+  /* ANDEN BOKS */
+  .action-card:nth-of-type(2)::before,
+  .action-card:nth-of-type(2) .circle {
+    background-color: var(--pink);
+  }
+  .action-card:nth-of-type(2)::before {
+    background-color: var(--pink);
+  }
+  .action-card:nth-of-type(2) .box {
+    border-color: var(--pink);
+  }
+
+  /* TREDJE BOKS */
+  .action-card:nth-of-type(3)::before,
+  .action-card:nth-of-type(3) .circle {
+    background-color: var(--lighter-blue);
+  }
+  .action-card:nth-of-type(3)::before {
+    background-color: var(--lighter-blue);
+  }
+  .action-card:nth-of-type(3) .box {
+    border-color: var(--lighter-blue);
+  }
+</style>
