@@ -14,12 +14,16 @@
     <div class="footer_grid">
       <div>
         <h5>ADRESSE</h5>
-        <p>Gammel kongevej 3E<br />1610 København V<br />Danmark</p>
+        <a
+          href="https://www.google.com/maps/place/Gl.+Kongevej+3E,+1610+K%C3%B8benhavn/@55.6743546,12.5570587,17z/data=!3m1!4b1!4m6!3m5!1s0x4652530b7c25c6fd:0xe5711034ae102108!8m2!3d55.6743546!4d12.5596336!16s%2Fg%2F11s90qjwtw?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          >Gammel kongevej 3E<br />1610 København V<br />Danmark</a
+        >
       </div>
 
-      <div>
+      <div class="contact">
         <h5>KONTAKT</h5>
-        <p>+45 33 42 21 00</p>
+        <a href="tel:+4533422100">+45 33 42 21 00</a>
         <a href="mailto:connect@adviceagency.com">connect@adviceagency.com</a>
       </div>
 
@@ -33,18 +37,18 @@
         </ul>
       </div>
     </div>
-    <div class="footer_brand">
-      <h1>TANKESTRØM</h1>
-    </div>
+    <h1>TANKESTRØM</h1>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: var(--box-grey);
-    border: var(--rainbow-grad) 1px solid;
     color: var(--white);
     padding-top: 3rem;
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box;
+    border-top: 1px solid transparent;
   }
 
   .newsletter {
@@ -65,7 +69,10 @@
 
   .newsletter input {
     padding: 0.5rem;
-    border: var(--white) 1px solid; /*--HUSK AT RETTE TIL GRADIENT*/
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box;
+    border: 1px solid transparent;
     border-radius: 25px;
     width: 250px;
     max-width: 100%;
@@ -74,7 +81,10 @@
 
   .newsletter button {
     padding: 0.5rem 1.5rem;
-    border: var(--white) 1px solid; /*--HUSK AT RETTE TIL GRADIENT*/
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box;
+    border: 1px solid transparent;
     border-radius: 15px;
     background-color: var(--box-grey);
     color: var(--white);
@@ -89,21 +99,26 @@
     gap: 2rem;
     text-align: center;
     list-style: none;
+    margin-bottom: 50px;
   }
 
   .footer_grid h5 {
-    margin: 1rem;
+    margin: 10px 0;
   }
-
   .footer-grid ul,
   li {
+    line-height: 1.6;
     list-style: none;
-    padding: 0;
+  }
+  .contact a {
+    display: block;
+    margin-bottom: 0.25rem; /* afstand mellem kontaktlinks */
   }
 
   a {
     /*--INDSÆT I STYLE - SEJ HOVER*/
-    color: var(--white);
+    color: var(--text-grey);
+    display: inline-block;
     position: relative;
     text-decoration: none;
   }
@@ -113,7 +128,7 @@
     position: absolute;
     height: 1px;
     left: 0;
-    bottom: 0px;
+    bottom: -1px;
     width: 0%;
     background: var(--white);
     transition: width 0.3s;
@@ -123,8 +138,9 @@
     width: 100%;
   }
 
-  .footer_brand h1 {
+  h1 {
     width: 100vw; /*vw = viewport width*/
+    font-size: 13.5vw;
     text-align: center;
     opacity: 0.2;
     margin-top: 2rem;
@@ -134,13 +150,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; /*DET DER GØR DEN ER GRADIENT*/
-    position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%);
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    box-sizing: border-box;
+    white-space: nowrap; /* forhindrer linjeskift */
+    overflow: hidden;
+    line-height: 0.77;
   }
 
   @media screen and (min-width: 850px) {
