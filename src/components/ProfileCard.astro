@@ -1,0 +1,9 @@
+---
+const { img, img_text, name, text } = Astro.props;
+---
+
+<article class="profile-card">
+  <img src={img} alt={img_text} />
+  <h5>Om {name}</h5>
+  <p>{text}</p>
+</article>
