@@ -10,7 +10,7 @@ const { number, title, text, align } = Astro.props;
 
 <style>
   .timeline-card {
-    margin: 15px;
+    margin: 15px 0;
     background-color: var(--box-grey);
     padding: 15px 15px 30px;
     border-radius: 20px;
@@ -22,7 +22,7 @@ const { number, title, text, align } = Astro.props;
     background:
       linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
       var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
-    border: 2px solid transparent;
+    border: 1px solid transparent;
   }
   .no {
     text-align: end;

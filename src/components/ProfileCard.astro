@@ -1,0 +1,32 @@
+---
+const { img, img_text, name } = Astro.props;
+---
+
+<article class="profile-card">
+  <img src={img} alt={img_text} />
+  <h5>Om {name}</h5>
+  <slot />
+</article>
+
+<style>
+  .profile-card {
+    background-color: var(--box-grey);
+    padding: 15px 15px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* gradient border-trick */
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border: 1px solid transparent;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+</style>
