@@ -51,7 +51,7 @@ const timeline = [
 
 <Layout>
   <AboutHero />
-  <h3>VORES VISION</h3>
+  <h3 class="margin">VORES VISION</h3>
   <div class="grid_1-1">
     <p>
       TankeStrøm er et tværfagligt vidensfællesskab, der vil gøre videnskab
@@ -64,58 +64,170 @@ const timeline = [
       platforme inviterer vi alle til at deltage aktivt og opleve, hvordan
       videnskab kan berige både hverdagen og samfundet.
     </p>
-    <img src="/public/img/placeholder-image.webp" alt="" />
+    <img src="/public/img/placeholder-image.webp" alt="" class="order-1" />
   </div>
-  <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
-  <section class="timeline">
-    {
-      timeline.map((item, index) => (
-        <TimelineCard
-          number={item.number}
-          title={item.title}
-          text={item.text}
-          align={index % 2 === 0 ? "left" : "right"}
-        />
-      ))
-    }
+  <section class="timeline-section">
+    <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
+    <h5>
+      Fra idé til fællesskab - se, hvordan TankeStrøm har udviklet sig til et
+      levende vidensnetværk i dag
+    </h5>
+    <div class="timeline">
+      {
+        timeline.map((item, index) => (
+          <TimelineCard
+            number={item.number}
+            title={item.title}
+            text={item.text}
+            align={index % 2 === 0 ? "left" : "right"}
+          />
+        ))
+      }
+    </div>
   </section>
-  <ProfileCard
-    img="/public/img/placeholder-image.webp"
-    img_text="Esben Rohan Christensen"
-    name="Esben"
-    text="Jeg har været med til at stifte TankeStrøm i 2023 og som forperson har jeg flere hatte, da jeg står for den daglige ledelse, men jeg er også med som tværfaglig formidler til vores events og podcasts. Mine interesser spænder bredt naturvidenskab til filosofi og humaniora: fra at prøve at forstå universets mindste dele til at blive klogere på, hvad det vil sige at være menneske gennem vores sprog og kultur. Til vores events, som f.eks. på Folkemødet i 2024, har jeg set, hvordan TankeStrøms tilgang skaber plads til, at alle kan deltage i samtaler om komplekse emner. Uanset hvilken faglig baggrund man har, føler man sig hørt, og man får noget konkret med sig, som man kan bruge i sit eget liv. I en tid, hvor mange store problemer er tæt forbundne, er det vigtigere end nogensinde at bygge bro - ikke bare mellem vidensfelter, men også mellem mennesker med forskellige baggrunde."
-  />
-</Layout>
+  <section class="founders">
+    <h3>UNDER STRØMMEN</h3>
+    <h5>Mød menneskerne bag Tankestrøm</h5>
+    <p>
+      TankeStrøm blev født en mild forårsaften i 2023 på Testrup Højskole, hvor
+      en lille gruppe elever og lærere samledes under tagryggen i
+      undervisningslokalet "Loftet".
+    </p>
+    <p>
+      Formålet var meget simpelt: at blive klogere - sammen. Hver måned blev et
+      nyt emne præsenteret af en lærer eller elev, og efterfølgende åbnede vi op
+      for fri diskussion, hvor tankerne virkelig kunne strømme frit.
+    </p>
+    <p>
+      Efter højskoleopholdet besluttede flere af os - Simon Løffler Puggaard,
+      Anna-Barbara Weile og Esben Rohan Christensen - at fortsætte arbejdet med
+      TankeStrøm.
+    </p>
+    <div class="grid_1-1">
+      <ProfileCard
+        img="/public/img/placeholder-image.webp"
+        img_text="Esben Rohan Christensen"
+        name="Esben"
+      >
+        <p>
+          Jeg har været med til at stifte TankeStrøm i 2023 og som forperson har
+          jeg flere hatte, da jeg står for den daglige ledelse, men jeg er også
+          med som tværfaglig formidler til vores events og podcasts. Mine
+          interesser spænder bredt naturvidenskab til filosofi og humaniora: fra
+          at prøve at forstå universets mindste dele til at blive klogere på,
+          hvad det vil sige at være menneske gennem vores sprog og kultur.
+        </p>
+        <p>
+          Til vores events, som f.eks. på Folkemødet i 2024, har jeg set,
+          hvordan TankeStrøms tilgang skaber plads til, at alle kan deltage i
+          samtaler om komplekse emner. Uanset hvilken faglig baggrund man har,
+          føler man sig hørt, og man får noget konkret med sig, som man kan
+          bruge i sit eget liv. I en tid, hvor mange store problemer er tæt
+          forbundne, er det vigtigere end nogensinde at bygge bro - ikke bare
+          mellem vidensfelter, men også mellem mennesker med forskellige
+          baggrunde.
+        </p>
+      </ProfileCard>
+      <ProfileCard
+        img="/public/img/placeholder-image.webp"
+        img_text="Simon Løffler Puggaard"
+        name="Simon"
+      >
+        <p>
+          Jeg hedder Simon, og har været med til at starte Tankestrøm. Her gør
+          jeg mig umage med, at vi udvikler en solid faglig formidling af
+          tværvidenskab, og jeg er sammen med andre stærke kræfter med til at
+          definere projektet.
+        </p>
+        <p>
+          Når jeg ikke gør dette, læser jeg sociologi. Jeg er desuden bachelor i
+          psykologi, og har her oplevet hvordan afgrænsningen af akademiske
+          felter ikke er 'naturlige', men noget vi sammen har fundet på.
+        </p>
+        <p>
+          Derfor er der også vigtigt for mig, at vi gør en ekstra indsats for at
+          få blik for tværfaglighedens potentiale, så vi ikke mister
+          orienteringen ved kun at have isoleret ekspertviden
+        </p>
+      </ProfileCard>
+      <ProfileCard
+        img="/public/img/placeholder-image.webp"
+        img_text="Anna-Barbara Weile"
+        name="Anna-Barbara"
+      >
+        <p>
+          Mit navn er Anna-Barbara Weile, og jeg er litteraturstuderende med et
+          stort engagement i dannelse, fællesskab og samfundsdebat.
+        </p>
+        <p>
+          Jeg blev student under coronapandemien, hvor jeg oplevede, hvor
+          vigtigt det er, at uddannelse ikke kun handler om karakterer, men også
+          om livsoplysning, nysgerrighed og fællesskab.
+        </p>
+        <p>
+          Jeg har skrevet debatindlæg om unges alkoholforbrug og om behovet for
+          sociale fællesskaber uden alkohol. Jeg skriver og deltager jævnligt i
+          samfundsdebatten, blandt andet i medier som Kristeligt Dagblad og
+          Kontrast.
+        </p>
+      </ProfileCard>
+    </div>
+  </section>
+  <section class="future-section">
+    <h3>FØLG MED I FREMTIDENS LÆRING</h3>
+  </section>
 
-<style>
-  h3 {
-    margin: 15px;
-  }
-  @media screen and (min-width: 850px) {
-    .timeline {
+  <style>
+    .grid_1-1 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px 250px;
-      max-width: 1200px;
-      grid-auto-rows: auto;
-      align-items: start;
-      margin: 0 auto;
-      position: relative; /* nødvendigt for ::before */
+      gap: 10px;
     }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      background: var(--logo-grad);
-      z-index: 0;
+    .margin {
+      margin: 0px 15px;
     }
+    .order-1 {
+      order: -1;
+    }
+    .founders {
+      margin: 15px;
+    }
+    .timeline-section {
+      margin: 15px;
+    }
+    @media screen and (min-width: 850px) {
+      .grid_1-1 {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
 
-    .timeline-card {
-      max-width: 500px;
+      .timeline {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 250px;
+        max-width: 1200px;
+        grid-auto-rows: auto;
+        align-items: start;
+        margin: 0 auto;
+        position: relative; /* nødvendigt for ::before */
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        background: var(--logo-grad);
+        z-index: 0;
+      }
+
+      .timeline-card {
+        max-width: 500px;
+      }
     }
-  }
-</style>
+  </style>
+</Layout>
