@@ -4,7 +4,49 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <article>
-    <h1>hej</h1>
-  </article>
+  <div class="grid_1-1">
+    <div>
+      <!-- indsæt image here -->
+      <p>indsæt image</p>
+      <h4>btn</h4>
+    </div>
+    <div>
+      <h3>HVAD ER TANKESTRØM?</h3>
+      <p>
+        TankeStrøm er et fællesskab, der på tværs af faglighed og interesser,
+        dykker ned i viden. Det er for dig, der vil udvide deres perspektiver,
+        deltage i tværfaglige samtaler og være en del af noget meningsfuldt. <br
+        /> Vi mindsker usikkerhed, elitære forventninger og følelsen af at stå alene
+        med dine indsigter Vi styker din inspiration, intellektuel tryghed og oplevelsen
+        af fællesskab og refleksion.
+      </p>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h3 {
+    margin-bottom: 15px;
+    border-bottom: var(--white) 1px solid;
+  }
+  p {
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 850px) {
+    .grid_1-1 {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .grid_1-1 > div {
+      padding: 20px;
+    }
+  }
+</style>
