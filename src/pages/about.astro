@@ -106,7 +106,7 @@ const timeline = [
       Anna-Barbara Weile og Esben Rohan Christensen - at fortsætte arbejdet med
       TankeStrøm.
     </p>
-    <div class="grid_1-1">
+    <div class="auto-grid">
       <ProfileCard
         img="/public/img/webp/esben.webp"
         img_text="Esben Rohan Christensen"
@@ -151,6 +151,27 @@ const timeline = [
           Derfor er der også vigtigt for mig, at vi gør en ekstra indsats for at
           få blik for tværfaglighedens potentiale, så vi ikke mister
           orienteringen ved kun at have isoleret ekspertviden
+        </p>
+      </ProfileCard>
+      <ProfileCard
+        img="/public/img/webp/anna-barbara.webp"
+        img_text="Anna-Barbara Weile"
+        name="Anna-Barbara"
+      >
+        <p>
+          Mit navn er Anna-Barbara Weile, og jeg er litteraturstuderende med et
+          stort engagement i dannelse, fællesskab og samfundsdebat.
+        </p>
+        <p>
+          Jeg blev student under coronapandemien, hvor jeg oplevede, hvor
+          vigtigt det er, at uddannelse ikke kun handler om karakterer, men også
+          om livsoplysning, nysgerrighed og fællesskab.
+        </p>
+        <p>
+          Jeg har skrevet debatindlæg om unges alkoholforbrug og om behovet for
+          sociale fællesskaber uden alkohol. Jeg skriver og deltager jævnligt i
+          samfundsdebatten, blandt andet i medier som Kristeligt Dagblad og
+          Kontrast.
         </p>
       </ProfileCard>
       <ProfileCard
@@ -247,6 +268,14 @@ const timeline = [
     .timeline-section h5 {
       padding: 20px 0px 10px;
     }
+    .founders p {
+      margin: 10px 0;
+    }
+    .auto-grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    }
     @media screen and (min-width: 850px) {
       section {
         max-width: 1200px;
@@ -292,9 +321,12 @@ const timeline = [
         background: var(--logo-grad);
         z-index: 0;
       }
-
       .timeline-card {
         max-width: 500px;
+      }
+      .flex-founders {
+        display: flex;
+        justify-content: space-between;
       }
     }
   </style>
