@@ -4,27 +4,68 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="grid_1-1">
-    <div>
-      <!-- indsæt image here -->
-      <p>indsæt image</p>
-      <h4>btn</h4>
+  <section class="hvad_er_ts">
+    <div class="grid_1-1">
+      <div>
+        <!-- indsæt image here -->
+        <img
+          src="/img/webp/hvad_er_ts.webp"
+          alt="6 mennesker, der står i en cirkel og taler"
+        />
+      </div>
+      <div>
+        <h3>HVAD ER TANKESTRØM?</h3>
+        <p>
+          TankeStrøm er et fællesskab, der på tværs af faglighed og interesser,
+          dykker ned i viden. Det er for dig, der vil udvide deres perspektiver,
+          deltage i tværfaglige samtaler og være en del af noget meningsfuldt. <br
+          /> Vi mindsker usikkerhed, elitære forventninger og følelsen af at stå
+          alene med dine indsigter Vi styker din inspiration, intellektuel tryghed
+          og oplevelsen af fællesskab og refleksion.
+        </p>
+        <h4>btn</h4>
+      </div>
     </div>
-    <div>
-      <h3>HVAD ER TANKESTRØM?</h3>
-      <p>
-        TankeStrøm er et fællesskab, der på tværs af faglighed og interesser,
-        dykker ned i viden. Det er for dig, der vil udvide deres perspektiver,
-        deltage i tværfaglige samtaler og være en del af noget meningsfuldt. <br
-        /> Vi mindsker usikkerhed, elitære forventninger og følelsen af at stå alene
-        med dine indsigter Vi styker din inspiration, intellektuel tryghed og oplevelsen
-        af fællesskab og refleksion.
-      </p>
+  </section>
+
+  <section class="ts_i_undervisning">
+    <div class="grid_1-1">
+      <div>
+        <h3>TANKESTRØM I UNDERVISNINGEN?</h3>
+
+        <h5>Et fællesskab for nysgerrighed og eftertanke</h5>
+        <p>
+          TankeStrøm kan være din gæst – i klasselokalet, på højskolen eller til
+          morgensamlingen.Vi skaber rum for refleksion, samtale og faglig
+          undren, hvor elever og lærere mødes som mennesker – ikke bare som fag. <br
+          /> Gennem tværfaglige oplæg, levende fortællinger og samtalesaloner inviterer
+          vi til at tænke højt sammen. Vi blander filosofi, kunst, naturvidenskab
+          og samfundsspørgsmål – og tror på, at vi forstår verden bedst, når vi lytter
+          til hinandens perspektiver. TankeStrøm kan bidrage med oplæg, workshops
+          eller bidrage til debat om præstationskultur.
+        </p>
+      </div>
+
+      <div>
+        <!-- indsæt image here -->
+        <img
+          src="/img/webp/ts_i_undervisning.webp"
+          alt="Person, der står blandt en gymanieklasse og taler"
+        />
+        <h4>btn</h4>
+      </div>
     </div>
-  </div>
+  </section>
 </Layout>
 
 <style>
+  section {
+    padding: 40px 15px;
+  }
+
+  img {
+    border-radius: 10px;
+  }
   .grid_1-1 {
     display: grid;
     grid-template-columns: 1fr;
@@ -34,7 +75,15 @@ import Layout from "../layouts/Layout.astro";
   }
   h3 {
     margin-bottom: 15px;
-    border-bottom: var(--white) 1px solid;
+    background:
+      linear-gradient(var(--black), var(--black)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border-bottom: 2px solid transparent;
+  }
+
+  h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   p {
     line-height: 1.6;
@@ -47,6 +96,10 @@ import Layout from "../layouts/Layout.astro";
     }
     .grid_1-1 > div {
       padding: 20px;
+    }
+
+    img {
+      border-radius: 20px;
     }
   }
 </style>
