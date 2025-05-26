@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import AboutHero from "../components/AboutHero.astro";
 import TimelineCard from "../components/TimelineCard.astro";
 import ProfileCard from "../components/ProfileCard.astro";
+import ActionCard from "../components/ActionCard.astro";
 
 const timeline = [
   {
@@ -197,137 +198,108 @@ const timeline = [
       </ProfileCard>
     </div>
   </section>
-  <section class="future-section">
+  <section class="action-section">
     <h3>FØLG MED I FREMTIDENS LÆRING</h3>
-    <div class="flex">
-      <div class="circle">
-        <img src="" alt="" />
-      </div>
-      <div class="box">
-        <h5>Har du spørgsmål eller brug for mere information?</h5>
-        <p>
-          Uanset om du vil vide mere om vores events, ønsker at booke TankeStrøm
-          til undervisningen, eller har andre spørgsmål, er du altid velkommen
-          til at sende os en mail. Vi svarer hurtigt og hjælper dig gerne
-          videre!
-        </p>
-      </div>
-    </div>
-    <div class="flex">
-      <div class="circle">
-        <img src="" alt="" />
-      </div>
-      <div class="box">
-        <h5>Følg os på Instagram!</h5>
-        <p>
-          Bliv en del af TankeStrøms fællesskab til dagligt, hvor vi deler
-          inspirerende, inviterende og engagerende indhold. Her kan du få et
-          indblik i vores events, spændende idéer og alt det, der gør læring og
-          formidling levende. Kom med på rejsen – vi glæder os til at møde dig!
-        </p>
-      </div>
-    </div><div class="flex">
-      <div class="circle">
-        <img src="" alt="" />
-      </div>
-      <div class="box">
-        <h5>Lyt til TankeStrøms podcast på Spotify!</h5>
-        <p>
-          Tag dig tid til at fordybe dig i spændende samtaler og få eksperters
-          unikke perspektiver på viden, læring og forståelse. Vores podcast
-          inviterer dig med bag facaden, hvor komplekse idéer bliver gjort
-          tilgængelige og inspirerende. Perfekt til dig, der elsker at udforske
-          nye tanker og blive klogere - når det passer dig.
-        </p>
-      </div>
-    </div>
+    <ActionCard
+      icon="/svg/logo-icon.svg"
+      icon_text="mail-ikon"
+      headline="Har du spørgsmål eller brug for mere information?"
+      text="Uanset om du vil vide mere om vores events, ønsker at booke TankeStrøm til undervisningen, eller har andre spørgsmål, er du altid velkommen til at sende os en mail. Vi svarer hurtigt og hjælper dig gerne videre!"
+    />
+    <ActionCard
+      icon="/svg/logo-icon.svg"
+      icon_text="instagram-ikon"
+      headline="Følg os på Instagram!"
+      text="Bliv en del af TankeStrøms fællesskab til dagligt, hvor vi deler inspirerende, inviterende og engagerende indhold. Her kan du få et indblik i vores events, spændende idéer og alt det, der gør læring og formidling levende. Kom med på rejsen – vi glæder os til at møde dig!"
+    />
+    <ActionCard
+      icon="/svg/logo-icon.svg"
+      icon_text="spotify-ikon"
+      headline="Lyt til TankeStrøms podcast på Spotify!"
+      text="Tag dig tid til at fordybe dig i spændende samtaler og få eksperters unikke perspektiver på viden, læring og forståelse. Vores podcast inviterer dig med bag facaden, hvor komplekse idéer bliver gjort tilgængelige og inspirerende. Perfekt til dig, der elsker at udforske nye tanker og blive klogere - når det passer dig."
+    />
   </section>
-
-  <style>
+</Layout>
+<style>
+  section {
+    padding: 40px 15px;
+  }
+  h3 {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    background:
+      linear-gradient(var(--black), var(--black)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border-bottom: 2px solid transparent;
+  }
+  .vision-section img {
+    border-radius: 10px;
+  }
+  .grid_1-1 {
+    display: grid;
+    gap: 10px;
+  }
+  .order-1 {
+    order: -1;
+  }
+  .timeline-section h5 {
+    padding: 20px 0px 10px;
+  }
+  .founders p {
+    margin: 10px 0;
+  }
+  .auto-grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  }
+  @media screen and (min-width: 850px) {
     section {
-      padding: 40px 15px;
-    }
-    h3 {
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-      background:
-        linear-gradient(var(--black), var(--black)) padding-box,
-        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
-      border-bottom: 2px solid transparent;
-    }
-    .vision-section img {
-      border-radius: 10px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .grid_1-1 {
-      display: grid;
-      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
     .order-1 {
-      order: -1;
+      order: 0;
     }
-    .timeline-section h5 {
-      padding: 20px 0px 10px;
+    .vision-section img {
+      width: 400px;
+      height: auto;
+      margin: 50px auto;
+      border-radius: 20px;
     }
-    .founders p {
-      margin: 10px 0;
+    .vision-section p {
+      align-self: center;
     }
-    .auto-grid {
+    .timeline {
       display: grid;
-      gap: 40px;
-      grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 250px;
+      max-width: 1200px;
+      grid-auto-rows: auto;
+      align-items: start;
+      margin: 0 auto;
+      position: relative; /* nødvendigt for ::before */
     }
-    @media screen and (min-width: 850px) {
-      section {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .grid_1-1 {
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
-      }
-      .order-1 {
-        order: 0;
-      }
-      .vision-section img {
-        width: 400px;
-        height: auto;
-        margin: 50px auto;
-        border-radius: 20px;
-      }
-      .vision-section p {
-        align-self: center;
-      }
-      .timeline {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 250px;
-        max-width: 1200px;
-        grid-auto-rows: auto;
-        align-items: start;
-        margin: 0 auto;
-        position: relative; /* nødvendigt for ::before */
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 10px;
-        background: var(--logo-grad);
-        z-index: 0;
-      }
-      .timeline-card {
-        max-width: 500px;
-      }
-      .flex-founders {
-        display: flex;
-        justify-content: space-between;
-      }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      background: var(--logo-grad);
+      z-index: 0;
     }
-  </style>
-</Layout>
+    .timeline-card {
+      max-width: 500px;
+    }
+  }
+</style>

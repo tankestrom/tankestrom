@@ -1,0 +1,17 @@
+---
+const { icon, icon_text, headline, text } = Astro.props;
+---
+
+<article class="action-card">
+  <div class="circle">
+    <img src={icon} alt={icon_text} />
+  </div>
+  <div class="box">
+    <h5>{headline}</h5>
+    <p>
+      {text}
+    </p>
+  </div>
+</article>
+
+<style></style>
