@@ -2,8 +2,14 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import EventlistHero from "../components/EventlistHero.astro";
+import EventCard from "../components/EventCard.astro";
 ---
 
 <Layout>
   <EventlistHero />
+  <section class="eventlist">
+    <div class="event-cards">
+      <EventCard />
+    </div>
+  </section>
 </Layout>
