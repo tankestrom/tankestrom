@@ -1,0 +1,115 @@
+---
+
+---
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="/video/hero-vid.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay">
+    <div class="title-wrapper">
+      <h3 class="en_tanke">ÉN TANKE STARTER <i>STRØMMEN</i></h3>
+    </div>
+
+    <div>
+      <p>
+        Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
+        i fællesskaber, hvor viden, refleksion og personlig udvikling hænger sammen.
+        Du har mulighed for at opnå viden, der udvikler dig og opleve et fællesskab,
+        der løfter dig. <br /> Bliv en del af samtalen – og se, hvad der strømmer
+        til dig.
+      </p>
+
+      <div class="buttons">
+        <p>indsæt btn</p>
+        <p>indsæt btn</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Sørger for at videoen dækker hele området */
+    z-index: -1; /* Sætter videoen bag teksten */
+  }
+  /* mørkere baggrundslag med 50% opacity */
+  section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* sort med 50% opacity */
+    z-index: 0;
+  }
+  .overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding: 0px 15px;
+    gap: 20px;
+  }
+  .title-wrapper {
+    padding-top: 200px;
+  }
+  .en_tanke {
+    font-size: clamp(3rem, 5vw, 2rem); /* Mindre end h1 */
+    text-align: center;
+  }
+
+  p {
+    padding-bottom: 30px;
+    text-align: left;
+    padding-top: 30;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: left;
+    padding-top: 30px;
+  }
+
+  @media screen and (min-width: 850px) {
+    .overlay {
+      padding: 0px 30px;
+    }
+
+    .title-wrapper {
+      display: block; /* <--- vigtig ændring */
+      padding-top: 300px;
+    }
+
+    .en_tanke {
+      font-size: clamp(5rem, 5vw, 3rem); /* Større end h1 */
+      text-align: center;
+    }
+    /* Removed invalid font-size line */
+
+    .grid_1-1 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 300px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    p {
+      max-width: 700px;
+      padding: 0px 30px;
+    }
+  }
+</style>
