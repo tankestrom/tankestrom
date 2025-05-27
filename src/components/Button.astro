@@ -21,4 +21,14 @@ const { href, label } = Astro.props;
     font-family: "helvetica_neue_lt_std75_bold";
     color: var(--white);
   }
+
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.07); /* let lysning */
+    background-image: var(--logo-grad);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: 1px solid transparent;
+    transform: scale(1.03);
+    transition: transform 0.2s ease-in-out;
+  }
 </style>
