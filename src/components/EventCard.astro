@@ -1,27 +1,149 @@
 ---
-
+import Button from "./Button.astro";
+const { buttonLabel, buttonHref } = Astro.props;
 ---
 
-<article>
-  <div class="event-date-container"></div>
+<article class="event-card">
+  <div class="event-date-container">
+    <p class="date-day no-smaller">08</p>
+    <h3 class="date-month">maj</h3>
+  </div>
   <div class="event-container">
     <h4>Event Title</h4>
     <div class="event-info">
       <div class="text-info">
-        <p class="event-type">EVENTTYPE</p>
+        <p class="event-type">eventtype</p>
         <p class="organizer">Navn på facilitator</p>
         <div class="event-description">
-          <p>text</p>
-          <p>text</p>
+          <p class="p-smaller">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            quidem quas quam id tempore ex voluptatibus ad in illum accusamus
+            distinctio architecto et, delectus obcaecati fugiat quibusdam atque
+            modi magnam.
+          </p>
+          <p class="p-smaller">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+            dolore ipsam quaerat enim, praesentium voluptatibus sed voluptatum
+            pariatur voluptate exercitationem a inventore similique animi? Ab
+            nulla tenetur eaque sunt eveniet!
+          </p>
         </div>
       </div>
       <div class="box-info">
         <div class="location-container">
-          <a class="event-location"></a>
-          <img src="" alt="Lokationsikon" />
+          <a class="event-location"
+            >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae,
+            odit.
+          </a>
+          <img src="/public/svg/location.svg" alt="Lokationsikon" />
         </div>
-        <div class="btn"></div>
+        <div class="btn">
+          <Button href={buttonHref} label={buttonLabel} />
+        </div>
       </div>
     </div>
   </div>
 </article>
+
+<style>
+  .event-card {
+    background-color: var(--box-grey);
+    padding: 15px 15px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border: 1px solid transparent;
+  }
+  .event-date-container {
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border-bottom: 1px solid transparent;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .date-month,
+  .date-day {
+    line-height: 0.9;
+  }
+  .date-month {
+    font-size: 50px;
+  }
+  h4 {
+    margin-bottom: 15px;
+  }
+  .event-type {
+    text-transform: uppercase;
+    /* bold??? */
+  }
+  .organizer {
+    font-style: italic;
+    /* lighter??? */
+  }
+  .event-description p {
+    margin-top: 15px;
+  }
+  .box-info {
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 10px 10px 20px;
+    margin-top: 20px;
+    color: var(--white);
+  }
+  .location-container {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--white);
+    padding: 20px 0 20px;
+    margin-bottom: 20px;
+  }
+  .location-container img {
+    width: 50px;
+    height: auto;
+    filter: brightness(0) saturate(100%) invert(100%);
+  }
+  @media screen and (min-width: 850px) {
+    .event-card {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .event-date-container {
+      border-bottom: none;
+      padding-bottom: 0;
+      align-items: center;
+      padding: 0 20px;
+    }
+    h4 {
+      margin-bottom: 0;
+    }
+    .event-container {
+      background:
+        linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border-left: 1px solid transparent;
+      padding-left: 20px;
+    }
+    .event-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
+    .box-info {
+      margin-top: 0;
+    }
+  }
+</style>
