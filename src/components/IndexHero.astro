@@ -5,8 +5,7 @@
 <section class="hero">
   <div class="overlay">
     <div class="title-wrapper">
-      <h1 class="en_tanke">EN TANKE</h1>
-      <h3 class="starter_strommen">STARTER STRØMMEN</h3>
+      <h3 class="en_tanke">ÉN TANKE STARTER <i>STRØMMEN</i></h3>
     </div>
     <p>
       Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
@@ -55,16 +54,14 @@
     padding-top: 200px;
   }
   .en_tanke {
-    font-size: clamp(1.8rem, 13vw, 3.25rem); /* skalerer responsivt */
+    font-size: clamp(3rem, 5vw, 2rem); /* Mindre end h1 */
     text-align: center;
   }
-  .starter_strommen {
-    font-size: clamp(1rem, 5vw, 2rem); /* Mindre end h1 */
-    text-align: center;
-  }
+
   p {
     padding-bottom: 30px;
     text-align: center;
+    padding-top: 30;
   }
 
   .grid_1-1 {
@@ -82,23 +79,13 @@
 
     .title-wrapper {
       display: block; /* <--- vigtig ændring */
-      padding-top: 200px;
-    }
-    .en_tanke {
-      text-align: left;
+      padding-top: 300px;
     }
 
     .en_tanke {
-      font-size: clamp(6rem, 11vw, 9.25rem); /* skalerer responsivt */
-      text-align: left; /* Justerer teksten til venstre */
-      margin-left: 100px; /* Justerer teksten til højre */
+      font-size: clamp(5rem, 5vw, 3rem); /* Større end h1 */
+      text-align: center;
     }
-    .starter_strommen {
-      text-align: right;
-      font-size: clamp(2rem, 5vw, 3.25rem); /* Mindre end h1 */
-      margin-right: 100px; /* Justerer teksten til højre */
-    }
-
     /* Removed invalid font-size line */
 
     .grid_1-1 {
