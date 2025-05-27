@@ -10,19 +10,18 @@
     <div class="title-wrapper">
       <h3 class="en_tanke">ÉN TANKE STARTER <i>STRØMMEN</i></h3>
     </div>
-    <p>
-      Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
-      i fællesskaber, hvor viden, refleksion og personlig udvikling hænger sammen.
-      Du har mulighed for at opnå viden, der udvikler dig og opleve et fællesskab,
-      der løfter dig. <br /> Bliv en del af samtalen – og se, hvad der strømmer til
-      dig.
-    </p>
-    <div class="grid_1-1">
-      <div>
-        <p>indsæt btn</p>
-      </div>
 
-      <div>
+    <div>
+      <p>
+        Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
+        i fællesskaber, hvor viden, refleksion og personlig udvikling hænger sammen.
+        Du har mulighed for at opnå viden, der udvikler dig og opleve et fællesskab,
+        der løfter dig. <br /> Bliv en del af samtalen – og se, hvad der strømmer
+        til dig.
+      </p>
+
+      <div class="buttons">
+        <p>indsæt btn</p>
         <p>indsæt btn</p>
       </div>
     </div>
@@ -73,16 +72,15 @@
 
   p {
     padding-bottom: 30px;
-    text-align: center;
+    text-align: left;
     padding-top: 30;
   }
 
-  .grid_1-1 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  .buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: left;
+    padding-top: 30px;
   }
 
   @media screen and (min-width: 850px) {
@@ -111,7 +109,7 @@
 
     p {
       max-width: 700px;
-      margin: 0 auto;
+      padding: 0px 30px;
     }
   }
 </style>
