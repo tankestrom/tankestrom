@@ -1,49 +1,86 @@
 ---
+//@ts-nocheck
 import Button from "./Button.astro";
 const { buttonLabel, buttonHref } = Astro.props;
+
+const url = "https://uvbakkgmltctqpkgfvdb.supabase.co/rest/v1/events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2YmFra2dtbHRjdHFwa2dmdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTgzMzMsImV4cCI6MjA2MzIzNDMzM30.OLsvC4Pl5HOP4Iwbeh4eHs68Iv0glsYj7Ff1xP4GFWg";
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => {
+  return res.json();
+});
+
+console.log("DATA FRA SUPABASE", data);
 ---
 
-<article class="event-card">
-  <div class="event-date-container">
-    <p class="date-day no-smaller">08</p>
-    <h3 class="date-month">maj</h3>
-  </div>
-  <div class="event-container">
-    <h4>Event Title</h4>
-    <div class="event-info">
-      <div class="text-info">
-        <p class="event-type">eventtype</p>
-        <p class="organizer">Navn på facilitator</p>
-        <div class="event-description">
-          <p class="p-smaller">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-            quidem quas quam id tempore ex voluptatibus ad in illum accusamus
-            distinctio architecto et, delectus obcaecati fugiat quibusdam atque
-            modi magnam.
-          </p>
-          <p class="p-smaller">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
-            dolore ipsam quaerat enim, praesentium voluptatibus sed voluptatum
-            pariatur voluptate exercitationem a inventore similique animi? Ab
-            nulla tenetur eaque sunt eveniet!
-          </p>
+{
+  data.map((event) => {
+    const date = new Date(event.event_date);
+    const formattedDate = date.toLocaleDateString("da-DK", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    // F.eks. "09"
+    const dayFormatted = String(date.getDate()).padStart(2, "0");
+
+    // F.eks. "APR" (engelsk forkortet måned i uppercase)
+    const monthFormatted = date
+      .toLocaleDateString("en-GB", {
+        month: "short",
+      })
+      .toUpperCase();
+    return (
+      <article class="event-card">
+        <div class="event-date-container">
+          <p class="date-day no-smaller">{dayFormatted}</p>
+          <h3 class="date-month">maj</h3>
         </div>
-      </div>
-      <div class="box-info">
-        <div class="location-container">
-          <a class="event-location"
-            >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae,
-            odit.
-          </a>
-          <img src="/public/svg/location.svg" alt="Lokationsikon" />
+        <div class="event-container">
+          <h4>Event Title</h4>
+          <div class="event-info">
+            <div class="text-info">
+              <p class="event-type">eventtype</p>
+              <p class="organizer">Navn på facilitator</p>
+              <div class="event-description">
+                <p class="p-smaller">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consequatur quidem quas quam id tempore ex voluptatibus ad in
+                  illum accusamus distinctio architecto et, delectus obcaecati
+                  fugiat quibusdam atque modi magnam.
+                </p>
+                <p class="p-smaller">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Alias dolore ipsam quaerat enim, praesentium voluptatibus sed
+                  voluptatum pariatur voluptate exercitationem a inventore
+                  similique animi? Ab nulla tenetur eaque sunt eveniet!
+                </p>
+              </div>
+            </div>
+            <div class="box-info">
+              <div class="location-container">
+                <a class="event-location">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Quae, odit.
+                </a>
+                <img src="/public/svg/location.svg" alt="Lokationsikon" />
+              </div>
+              <div class="btn">
+                <Button href={buttonHref} label={buttonLabel} />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="btn">
-          <Button href={buttonHref} label={buttonLabel} />
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
+      </article>
+    );
+  })
+}
 
 <style>
   .event-card {
