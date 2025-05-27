@@ -1,5 +1,14 @@
 ---
-const { icon, icon_text, headline, text, class: className } = Astro.props;
+import Button from "./Button.astro";
+const {
+  icon,
+  icon_text,
+  headline,
+  text,
+  class: className,
+  buttonLabel,
+  buttonHref,
+} = Astro.props;
 ---
 
 <article class={`action-card ${className}`}>
@@ -11,53 +20,58 @@ const { icon, icon_text, headline, text, class: className } = Astro.props;
     <p>
       {text}
     </p>
+    <Button href={buttonHref} label={buttonLabel} />
   </div>
 </article>
 
 <style>
   .action-card {
     display: flex;
+    flex-direction: column; /* mobil: vertikal stacking */
     align-items: center;
-    justify-content: space-between;
     gap: 40px;
     max-width: 1200px;
     margin: 60px 0;
     position: relative;
-    flex-wrap: wrap;
-  }
-  .action-card.reverse {
-    flex-direction: row-reverse; /* spejlvender pink row */
   }
 
+  .action-card.reverse {
+    flex-direction: column; /* mobil: samme stacking */
+  }
+
+  /* lodret linje på mobil */
   .action-card::before {
-    /* linje bag cirklen */
     content: "";
     position: absolute;
-    top: 50%;
-    left: 140px; /* bredde på cirklen */
-    width: 400px;
-    height: 2px;
+    top: 140px; /* lige under cirklen */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 2px;
     background: var(--orange);
-    transform: translateY(-50%);
     z-index: -1;
   }
-  .action-card.reverse::before {
-    /* linje bag cirklen i reverse/spejlvendt */
-    left: auto;
-    right: 140px;
+
+  .action-card:nth-of-type(2)::before {
     background: var(--pink);
   }
+
+  .action-card:nth-of-type(3)::before {
+    background: var(--lighter-blue);
+  }
+
   .circle {
-    flex-shrink: 0; /* forhindrer cirklen i at krympe */
+    flex-shrink: 0;
     width: 140px;
     height: 140px;
-    border-radius: 50%; /* ved cirkler */
+    border-radius: 50%;
     background-color: var(--orange);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
   }
+
   .circle img {
     width: 60px;
     height: auto;
@@ -66,35 +80,59 @@ const { icon, icon_text, headline, text, class: className } = Astro.props;
   .box {
     background-color: var(--box-grey);
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 50px 15px 15px;
     border: 1px solid var(--orange);
     max-width: 650px;
     flex-grow: 1;
     background: var(--box-grey);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   /* farve-varianter */
-  /* ANDEN BOKS */
-  .action-card:nth-of-type(2)::before,
   .action-card:nth-of-type(2) .circle {
-    background-color: var(--pink);
-  }
-  .action-card:nth-of-type(2)::before {
     background-color: var(--pink);
   }
   .action-card:nth-of-type(2) .box {
     border-color: var(--pink);
   }
-
-  /* TREDJE BOKS */
-  .action-card:nth-of-type(3)::before,
   .action-card:nth-of-type(3) .circle {
-    background-color: var(--lighter-blue);
-  }
-  .action-card:nth-of-type(3)::before {
     background-color: var(--lighter-blue);
   }
   .action-card:nth-of-type(3) .box {
     border-color: var(--lighter-blue);
+  }
+
+  /* DESKTOP OVERSKRIVES i media query */
+  @media screen and (min-width: 850px) {
+    .action-card {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .action-card.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .action-card::before {
+      content: "";
+      top: 50%;
+      left: 140px;
+      width: 400px;
+      height: 2px;
+      transform: translateY(-50%);
+      background: var(--orange);
+    }
+
+    .action-card.reverse::before {
+      left: auto;
+      right: 140px;
+      background: var(--pink);
+    }
+    .box {
+      padding: 50px 30px 30px;
+    }
   }
 </style>

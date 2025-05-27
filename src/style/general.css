@@ -14,6 +14,7 @@ img {
 :root {
   --black: rgb(17, 16, 16);
   --white: #fcf7eb;
+  --btn-white: #535354;
   --box-grey: #28292a;
   --text-grey: #8e8e8e;
   --old-logo: #1a108d;
