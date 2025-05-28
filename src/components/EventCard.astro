@@ -35,6 +35,7 @@ console.log("DATA FRA SUPABASE", data);
       .toLocaleDateString("da-DK", {
         month: "short",
       })
+      .replace(".", "")
       .toUpperCase();
 
     return (
@@ -49,6 +50,7 @@ console.log("DATA FRA SUPABASE", data);
                 .toLocaleString("da-DK", {
                   month: "short",
                 })
+                .replace(".", "")
                 .toUpperCase();
               return (
                 <div class="single-date">
@@ -217,6 +219,19 @@ console.log("DATA FRA SUPABASE", data);
       padding-bottom: 0;
       align-items: center;
       padding: 0 20px;
+    }
+    .multi-date-block {
+      border-bottom: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .no-smaller {
+      font-size: 80px !important;
+    }
+    .multi-date-block h3 {
+      font-size: 50px !important;
     }
     h4 {
       margin-bottom: 30px;
