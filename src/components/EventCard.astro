@@ -39,73 +39,76 @@ console.log("DATA FRA SUPABASE", data);
       .toUpperCase();
 
     return (
-      <article class="event-card">
-        {/* === DATOSEKTION === */}
-        {event.multi_dates && event.multi_dates.length > 0 ? (
-          <div class="multi-date-block">
-            {event.multi_dates.map((d) => {
-              const date = new Date(d);
-              const day = String(date.getDate()).padStart(2, "0");
-              const month = date
-                .toLocaleString("da-DK", {
-                  month: "short",
-                })
-                .replace(".", "")
-                .toUpperCase();
-              return (
-                <div class="single-date">
-                  <p class="date-day no-smaller">{day}</p>
-                  <h3 class="date-month">{month}</h3>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div class="event-date-container">
-            <p class="date-day no-smaller">{dayFormatted}</p>
-            <h3 class="date-month">{monthFormatted}</h3>
-          </div>
-        )}
+      <div class="event-wrapper">
+        <p class="event-type-tag">{event.event_type}</p>
+        <article class="event-card">
+          {/* === DATOSEKTION === */}
+          {event.multi_dates && event.multi_dates.length > 0 ? (
+            <div class="multi-date-block">
+              {event.multi_dates.map((d) => {
+                const date = new Date(d);
+                const day = String(date.getDate()).padStart(2, "0");
+                const month = date
+                  .toLocaleString("da-DK", {
+                    month: "short",
+                  })
+                  .replace(".", "")
+                  .toUpperCase();
+                return (
+                  <div class="single-date">
+                    <p class="date-day no-smaller">{day}</p>
+                    <h3 class="date-month">{month}</h3>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div class="event-date-container">
+              <p class="date-day no-smaller">{dayFormatted}</p>
+              <h3 class="date-month">{monthFormatted}</h3>
+            </div>
+          )}
 
-        {/* === INDHOLD === */}
-        <div class="event-container">
-          <h4>{event.event_title}</h4>
-          <div class="event-info">
-            <div class="text-info">
-              <p class="event-type">{event.event_type}</p>
-              <p class="organizer">{event.event_organizer}</p>
-              <div class="event-description">
-                <p
-                  class="p-smaller"
-                  set:html={event.event_description.replace(/\n/g, "<br>")}
-                />
+          {/* === INDHOLD === */}
+          <div class="event-container">
+            <h4>{event.event_title}</h4>
+            <div class="event-info">
+              <div class="text-info">
+                <p class="event-type">{event.event_type}</p>
+                <p class="organizer">{event.event_organizer}</p>
+                <div class="event-description">
+                  <p
+                    class="p-smaller"
+                    set:html={event.event_description.replace(/\n/g, "<br>")}
+                  />
+                </div>
               </div>
-            </div>
-            <div class="box-info">
-              <div class="location-container">
-                <a
-                  class="event-location p-smaller"
-                  set:html={event.event_location.replace(/\n/g, "<br>")}
-                />
-                <img src="/public/svg/location.svg" alt="Lokationsikon" />
-              </div>
-              <div class="time-container">
-                {event.event_start && event.event_end && (
-                  <p class="event-time p-smaller">
-                    Kl {event.event_start.slice(0, 5).replace(":", ".")} til{" "}
-                    {event.event_end.slice(0, 5).replace(":", ".")}
-                    {/* viser kun de første 5 tegn = time + minut. og replacer : med . (mere dansk) */}
-                  </p>
-                )}
-                <img src="/public/svg/time.svg" alt="" />
-              </div>
-              <div class="btn">
-                <Button href={buttonHref} label={buttonLabel} />
+              <div class="box-info">
+                <div class="location-container">
+                  <a
+                    class="event-location p-smaller"
+                    set:html={event.event_location.replace(/\n/g, "<br>")}
+                  />
+                  <img src="/public/svg/location.svg" alt="Lokationsikon" />
+                </div>
+                <div class="time-container">
+                  {event.event_start && event.event_end && (
+                    <p class="event-time p-smaller">
+                      Kl {event.event_start.slice(0, 5).replace(":", ".")} til{" "}
+                      {event.event_end.slice(0, 5).replace(":", ".")}
+                      {/* viser kun de første 5 tegn = time + minut. og replacer : med . (mere dansk) */}
+                    </p>
+                  )}
+                  <img src="/public/svg/time.svg" alt="" />
+                </div>
+                <div class="btn">
+                  <Button href={buttonHref} label={buttonLabel} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     );
   })
 }
@@ -122,7 +125,7 @@ console.log("DATA FRA SUPABASE", data);
       linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
       var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
     border: 1px solid transparent;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
   }
   .multi-date-block {
     display: flex;
@@ -206,13 +209,30 @@ console.log("DATA FRA SUPABASE", data);
     width: 30px;
     margin-right: 10px;
   }
+
+  .event-wrapper {
+    position: relative;
+  }
+
+  .event-type-tag {
+    position: absolute;
+    top: -43px;
+    left: 20px;
+    background: var(--logo-grad);
+    color: var(--white);
+    font-weight: bold;
+    padding: 15px 35px 7px;
+    border-radius: 20px 20px 0 0;
+    text-transform: uppercase;
+    z-index: 10;
+  }
   @media screen and (min-width: 850px) {
     .event-card {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
       max-width: 1100px;
-      margin: 0 auto 50px;
+      margin: 0 auto 80px;
     }
     .event-date-container {
       border-bottom: none;
@@ -253,6 +273,10 @@ console.log("DATA FRA SUPABASE", data);
     }
     .box-info {
       margin-top: 0;
+    }
+    .event-type-tag {
+      left: 25px;
+      top: -46px;
     }
   }
 </style>
