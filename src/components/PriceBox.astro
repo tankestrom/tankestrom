@@ -1,0 +1,25 @@
+---
+const { label } = Astro.props;
+---
+
+<a class="price-box">{label}</a>
+
+<style>
+  .price-box {
+    margin-top: 15px;
+    padding: 16px 0;
+    border-radius: 15px;
+    text-decoration: none;
+    display: block; /* <-- vigtig */
+    width: 100%; /* <-- fylder hele kolonnen */
+    text-align: center; /* centrer tekst inde i knappen */
+    text-transform: uppercase;
+    box-sizing: border-box; /* så padding regnes korrekt med */
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box;
+    border: 1px solid transparent;
+    font-family: "helvetica_neue_lt_std75_bold";
+    color: var(--white);
+  }
+</style>

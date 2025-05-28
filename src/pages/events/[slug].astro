@@ -23,6 +23,11 @@ const { event } = Astro.props;
 
 <Layout>
   <section>
-    <SingleEventCard event={event} />
+    <SingleEventCard
+      event={event}
+      priceLabel={event.event_price}
+      buttonLabel="Tilmeld dig"
+      buttonHref=""
+    />
   </section>
 </Layout>
