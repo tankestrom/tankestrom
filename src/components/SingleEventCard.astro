@@ -1,0 +1,206 @@
+---
+import Button from "./Button.astro";
+import PriceBox from "./PriceBox.astro";
+const { event, buttonLabel, buttonHref, priceLabel } = Astro.props;
+
+const fallbackDate = new Date(event.event_date);
+// event-dato med punktum
+const dayFormatted = String(fallbackDate.getDate()).padStart(2, "0") + ".";
+// event-måned med store bogstaver og uden punktum
+const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
+  month: "long",
+});
+---
+
+<article class="single-event-card">
+  <div class="event-img">
+    <div class="overlay">
+      <div class="title-wrapper">
+        <h1 class="h-date">{dayFormatted}</h1>
+        <h1 class="h-month">{monthFormatted}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="wo-img">
+    <div class="flex">
+      <div class="col">
+        <h2>{event.event_title}</h2>
+        <p
+          class="event-description"
+          set:html={event.event_description.replace(/\n/g, "<br>")}
+        />
+      </div>
+      <div class="box-info">
+        <div class="location-container">
+          <p
+            class="event-location p-smaller"
+            set:html={event.event_location.replace(/\n/g, "<br>")}
+          />
+          <img src="/public/svg/location.svg" alt="Lokationsikon" />
+        </div>
+        <div class="room-container">
+          <p class="event-room p-smaller">
+            {event.event_room ? event.event_room : "Lokation ikke angivet"}
+          </p>
+          <img src="/public/svg/door.svg" alt="Dør-ikon" />
+        </div>
+        <div class="time-container">
+          {
+            event.event_start && event.event_end && (
+              <p class="event-time p-smaller">
+                Kl {event.event_start.slice(0, 5).replace(":", ".")} til{" "}
+                {event.event_end.slice(0, 5).replace(":", ".")}
+              </p>
+            )
+          }
+          <img src="/public/svg/time.svg" alt="" />
+        </div>
+        <div class="price-box">
+          <PriceBox label={priceLabel} />
+        </div>
+        <div class="btn">
+          <Button href={buttonHref} label={buttonLabel} />
+        </div>
+      </div>
+    </div>
+    <div class="event-program">
+      <h2>PROGRAM</h2>
+      <p class="full-date bold">
+        Mandag d. {dayFormatted}
+        {monthFormatted} fra kl. {
+          event.event_start.slice(0, 5).replace(":", ".")
+        }
+        til{" "}
+        {event.event_end.slice(0, 5).replace(":", ".")}
+      </p>
+      <p
+        class="program-text"
+        set:html={event.program_text.replace(/\n/g, "<br>")}
+      />
+    </div>
+  </div>
+
+  <style>
+    .single-event-card {
+      background-color: var(--box-grey);
+      border-radius: 20px;
+      background:
+        linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border: 1px solid transparent;
+      margin: 100px 15px;
+    }
+    .event-img {
+      position: relative;
+      height: 40vh;
+      background-image: url("/img/webp/about-hero.webp");
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px 20px 0 0;
+    }
+    .event-img::before {
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* sort med 50% opacity */
+      z-index: 0;
+    }
+    .overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0px 10px;
+    }
+    .title-wrapper {
+      padding-top: 30px;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+    .wo-img {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .box-info {
+      min-width: 300px;
+      background:
+        linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border: 1px solid transparent;
+      border-radius: 15px;
+      padding: 10px 10px 20px;
+      margin-top: 20px;
+      color: var(--white);
+    }
+    .location-container,
+    .time-container,
+    .room-container {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+      background:
+        linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border-bottom: 1px solid transparent;
+      padding: 20px 0 20px;
+      align-items: center;
+    }
+    .time-container {
+      margin-bottom: 20px;
+    }
+    .location-container img,
+    .time-container img,
+    .room-container img {
+      width: 50px;
+      height: auto;
+      filter: brightness(0) saturate(100%) invert(100%);
+    }
+    .time-container img {
+      width: 30px;
+      margin-right: 10px;
+    }
+    .room-container img {
+      width: 40px;
+      margin-right: 6px;
+    }
+    @media screen and (min-width: 850px) {
+      .single-event-card {
+        max-width: 1200px;
+        margin: 130px auto;
+      }
+      .event-img {
+        height: 500px;
+      }
+      .title-wrapper {
+        padding-top: 80px;
+        place-self: center;
+      }
+      h1 {
+        font-size: clamp(80px, 15vw, 148px);
+      }
+      .h-month {
+        padding-left: 100px;
+      }
+      .wo-img {
+        padding: 50px 80px;
+      }
+      .flex {
+        display: flex;
+        gap: 20px;
+      }
+      .box-info {
+        min-width: 320px;
+        padding: 20px 20px 0px;
+      }
+      .box-info p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</article>
