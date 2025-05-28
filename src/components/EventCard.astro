@@ -1,117 +1,88 @@
 ---
 //@ts-nocheck
 import Button from "./Button.astro";
-const { buttonLabel, buttonHref } = Astro.props;
+const { event, buttonLabel, buttonHref } = Astro.props;
 
-const url = "https://uvbakkgmltctqpkgfvdb.supabase.co/rest/v1/events";
-const key =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2YmFra2dtbHRjdHFwa2dmdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTgzMzMsImV4cCI6MjA2MzIzNDMzM30.OLsvC4Pl5HOP4Iwbeh4eHs68Iv0glsYj7Ff1xP4GFWg";
-const options = {
-  headers: {
-    apikey: key,
-  },
-};
-
-const data = await fetch(url, options).then((res) => {
-  return res.json();
-});
-
-// Sortér efter første dato i multi_dates hvis den findes, ellers event_date
-data.sort((a, b) => {
-  const dateA = a.multi_dates?.[0] || a.event_date;
-  const dateB = b.multi_dates?.[0] || b.event_date;
-  return new Date(dateA) - new Date(dateB);
-});
-
-console.log("DATA FRA SUPABASE", data);
+// Brug fallback-dato
+const fallbackDate = new Date(event.event_date);
+const dayFormatted = String(fallbackDate.getDate()).padStart(2, "0");
+const monthFormatted = fallbackDate
+  .toLocaleDateString("da-DK", { month: "short" })
+  .replace(".", "")
+  .toUpperCase();
 ---
 
-{
-  data.map((event) => {
-    // Brug første dato til fallback-formattering
-    const fallbackDate = new Date(event.event_date);
-    const dayFormatted = String(fallbackDate.getDate()).padStart(2, "0");
-    const monthFormatted = fallbackDate
-      .toLocaleDateString("da-DK", {
-        month: "short",
-      })
-      .replace(".", "")
-      .toUpperCase();
-
-    return (
-      <div class="event-wrapper">
-        <p class="event-type-tag">{event.event_type}</p>
-        <article class="event-card">
-          {/* === DATOSEKTION === */}
-          {event.multi_dates && event.multi_dates.length > 0 ? (
-            <div class="multi-date-block">
-              {event.multi_dates.map((d) => {
-                const date = new Date(d);
-                const day = String(date.getDate()).padStart(2, "0");
-                const month = date
-                  .toLocaleString("da-DK", {
-                    month: "short",
-                  })
-                  .replace(".", "")
-                  .toUpperCase();
-                return (
-                  <div class="single-date">
-                    <p class="date-day no-smaller">{day}</p>
-                    <h3 class="date-month">{month}</h3>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div class="event-date-container">
-              <p class="date-day no-smaller">{dayFormatted}</p>
-              <h3 class="date-month">{monthFormatted}</h3>
-            </div>
-          )}
-
-          {/* === INDHOLD === */}
-          <div class="event-container">
-            <h4>{event.event_title}</h4>
-            <div class="event-info">
-              <div class="text-info">
-                <p class="event-type">{event.event_type}</p>
-                <p class="organizer">{event.event_organizer}</p>
-                <div class="event-description">
-                  <p
-                    class="p-smaller"
-                    set:html={event.event_description.replace(/\n/g, "<br>")}
-                  />
-                </div>
+<div class="event-wrapper">
+  <p class="event-type-tag">{event.event_type}</p>
+  <article class="event-card">
+    <!-- DATOSEKTION -->
+    {
+      event.multi_dates && event.multi_dates.length > 0 ? (
+        <div class="multi-date-block">
+          {event.multi_dates.map((d) => {
+            const date = new Date(d);
+            const day = String(date.getDate()).padStart(2, "0");
+            const month = date
+              .toLocaleString("da-DK", { month: "short" })
+              .replace(".", "")
+              .toUpperCase();
+            return (
+              <div class="single-date">
+                <p class="date-day no-smaller">{day}</p>
+                <h3 class="date-month">{month}</h3>
               </div>
-              <div class="box-info">
-                <div class="location-container">
-                  <a
-                    class="event-location p-smaller"
-                    set:html={event.event_location.replace(/\n/g, "<br>")}
-                  />
-                  <img src="/public/svg/location.svg" alt="Lokationsikon" />
-                </div>
-                <div class="time-container">
-                  {event.event_start && event.event_end && (
-                    <p class="event-time p-smaller">
-                      Kl {event.event_start.slice(0, 5).replace(":", ".")} til{" "}
-                      {event.event_end.slice(0, 5).replace(":", ".")}
-                      {/* viser kun de første 5 tegn = time + minut. og replacer : med . (mere dansk) */}
-                    </p>
-                  )}
-                  <img src="/public/svg/time.svg" alt="" />
-                </div>
-                <div class="btn">
-                  <Button href={buttonHref} label={buttonLabel} />
-                </div>
-              </div>
-            </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="event-date-container">
+          <p class="date-day no-smaller">{dayFormatted}</p>
+          <h3 class="date-month">{monthFormatted}</h3>
+        </div>
+      )
+    }
+
+    <!-- INDHOLD -->
+    <div class="event-container">
+      <h4>{event.event_title}</h4>
+      <div class="event-info">
+        <div class="text-info">
+          <p class="event-type">{event.event_type}</p>
+          <p class="organizer">{event.event_organizer}</p>
+          <div class="event-description">
+            <p
+              class="p-smaller"
+              set:html={event.event_description.replace(/\n/g, "<br>")}
+            />
           </div>
-        </article>
+        </div>
+        <div class="box-info">
+          <div class="location-container">
+            <a
+              class="event-location p-smaller"
+              set:html={event.event_location.replace(/\n/g, "<br>")}
+            />
+            <img src="/public/svg/location.svg" alt="Lokationsikon" />
+          </div>
+          <div class="time-container">
+            {
+              event.event_start && event.event_end && (
+                <p class="event-time p-smaller">
+                  Kl {event.event_start.slice(0, 5).replace(":", ".")} til{" "}
+                  {event.event_end.slice(0, 5).replace(":", ".")}
+                </p>
+              )
+            }
+            <img src="/public/svg/time.svg" alt="" />
+          </div>
+          <div class="btn">
+            <Button href={buttonHref} label={buttonLabel} />
+          </div>
+        </div>
       </div>
-    );
-  })
-}
+    </div>
+  </article>
+</div>
 
 <style>
   .event-card {
