@@ -3,6 +3,14 @@ import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
 import Button from "../components/Button.astro";
+const {
+  buttonLabel,
+  buttonHref,
+  buttonLabel1,
+  buttonHref1,
+  buttonLabel2,
+  buttonHref2,
+} = Astro.props;
 ---
 
 <Layout>
@@ -32,7 +40,7 @@ import Button from "../components/Button.astro";
           alene med dine indsigter Vi styker din inspiration, intellektuel tryghed
           og oplevelsen af fællesskab og refleksion.
         </p>
-        <Button />
+        <Button href="/about" label="OM TANKESTRØM" />
       </div>
     </div>
   </section>
@@ -42,7 +50,7 @@ import Button from "../components/Button.astro";
       <div>
         <h3>TANKESTRØM I UNDERVISNINGEN?</h3>
 
-        <h5>Et fællesskab for nysgerrighed og eftertanke</h5>
+        <!-- <h5>Et fællesskab for nysgerrighed og eftertanke</h5> -->
         <p>
           TankeStrøm kan være din gæst – i klasselokalet, på højskolen eller til
           morgensamlingen.Vi skaber rum for refleksion, samtale og faglig
@@ -53,6 +61,7 @@ import Button from "../components/Button.astro";
           til hinandens perspektiver. TankeStrøm kan bidrage med oplæg, workshops
           eller bidrage til debat om præstationskultur.
         </p>
+        <Button href="/kontakt" label="KONTAKT OS" />
       </div>
 
       <div>
@@ -61,7 +70,6 @@ import Button from "../components/Button.astro";
           src="/img/webp/ts_i_undervisning.webp"
           alt="Person, der står blandt en gymanieklasse og taler"
         />
-        <Button />
       </div>
     </div>
   </section>
