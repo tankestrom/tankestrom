@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import PriceBox from "./PriceBox.astro";
+
 const { event, buttonLabel, buttonHref, priceLabel } = Astro.props;
 
 const fallbackDate = new Date(event.event_date);
@@ -40,7 +40,11 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
         </div>
         <div class="room-container">
           <p class="event-room p-smaller">
-            {event.event_room ? event.event_room : "Lokation ikke angivet"}
+            {
+              event.event_room
+                ? event.event_room
+                : "Du bliver dirigeret fra indgangen"
+            }
           </p>
           <img src="/public/svg/door.svg" alt="Dør-ikon" />
         </div>
@@ -53,10 +57,13 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
               </p>
             )
           }
-          <img src="/public/svg/time.svg" alt="" />
+          <img src="/public/svg/time.svg" alt="Ur-ikon" />
         </div>
-        <div class="price-box">
-          <PriceBox label={priceLabel} />
+        <div class="price-container">
+          <p class="event-price p-smaller">
+            {event.event_price}
+          </p>
+          <img src="/public/svg/money.svg" alt="Penge-ikon" />
         </div>
         <div class="btn">
           <Button href={buttonHref} label={buttonLabel} />
@@ -125,7 +132,10 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 13px;
+    }
+    h2 {
+      margin-bottom: 15px;
     }
     .box-info {
       min-width: 300px;
@@ -140,7 +150,8 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
     }
     .location-container,
     .time-container,
-    .room-container {
+    .room-container,
+    .price-container {
       display: flex;
       gap: 10px;
       justify-content: space-between;
@@ -151,28 +162,35 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       padding: 20px 0 20px;
       align-items: center;
     }
-    .time-container {
+    .price-container {
       margin-bottom: 20px;
     }
     .location-container img,
     .time-container img,
-    .room-container img {
-      width: 50px;
+    .room-container img,
+    .price-container img {
+      width: 48px;
       height: auto;
       filter: brightness(0) saturate(100%) invert(100%);
     }
-    .time-container img {
+    .time-container img,
+    .price-container img {
       width: 30px;
       margin-right: 10px;
     }
     .room-container img {
-      width: 40px;
-      margin-right: 6px;
+      width: 46px;
+      margin-right: 4px;
+    }
+
+    .bold {
+      font-weight: bold;
     }
     @media screen and (min-width: 850px) {
       .single-event-card {
         max-width: 1200px;
-        margin: 90px auto;
+        margin: 90px 15px;
+        place-self: center;
       }
       .event-img {
         height: 500px;
@@ -196,7 +214,7 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       }
       .box-info {
         min-width: 320px;
-        padding: 20px 20px 0px;
+        padding: 20px;
       }
       .box-info p {
         font-size: 18px;
