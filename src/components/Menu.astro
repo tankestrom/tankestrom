@@ -65,12 +65,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(17, 16, 16, 0.4); /* sort med 40% opacitet */
+    background-color: rgba(17, 16, 16, 0.6); /* sort med 40% opacitet */
     color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px 15px;
     z-index: 200;
   }
 
@@ -88,8 +88,8 @@
     z-index: 201;
   }
   .logo-icon {
-    width: 57.5px;
-    height: 57.5px;
+    width: 51.5px;
+    height: 51.5px;
     z-index: 201;
   }
 
@@ -106,13 +106,13 @@
   /* "MENU" teksten i burgerikonet */
   .burger span {
     font-family: "helvetica_neue_lt_std75_bold";
-    font-size: 22px;
+    font-size: 17px;
     margin-top: 5px;
   }
   /* Linjerne i burgerikonet */
   .burger .line {
-    width: 66px;
-    height: 5px;
+    width: 50px;
+    height: 3px;
     background: var(--white);
     margin: 4px 0;
     transition: 0.3s;
@@ -179,7 +179,7 @@
 
   @media screen and (min-width: 850px) {
     header {
-      padding: 30px 60px;
+      padding: 15px 50px;
     }
     /* Logo */
     .logo-w-text {
@@ -188,6 +188,15 @@
     }
     .logo-icon {
       display: none;
+    }
+    /* "MENU" teksten i burgerikonet */
+    .burger span {
+      font-size: 20px;
+    }
+    /* Linjerne i burgerikonet */
+    .burger .line {
+      width: 60px;
+      height: 5px;
     }
   }
 </style>
