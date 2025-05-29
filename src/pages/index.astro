@@ -62,24 +62,30 @@ const timeline = [
 
   <IndexUpcomingEvents />
 
-  <section class="whats_in_it_for_me">
-    <div class="grid_1-1_wiifm">
-      <div>
-        <h3>5 GRUNDE TIL TANKESTRØM</h3>
-      </div>
-      <div class="wiifm_cards">
-        {
-          timeline.map((item) => (
-            <WiifmCard
-              number={item.number}
-              title={item.title}
-              text={item.text}
-            />
-          ))
-        }
-      </div>
+  <div class="grid_1-1">
+    <div>
+      <h3>5 GRUNDE TIL TANKESTRØM</h3>
+      <img
+        src="/public/img/webp/5_grunde.webp"
+        alt="gruppe af personer der interagerer"
+        class="wiifm_image"
+        width="100%"
+        height="auto"
+      />
     </div>
-  </section>
+    <div class="wiifm_div">
+      {
+        timeline.map((item) => (
+          <WiifmCard
+            class="wiifm_card"
+            number={item.number}
+            title={item.title}
+            text={item.text}
+          />
+        ))
+      }
+    </div>
+  </div>
 
   <section class="ts_i_undervisning">
     <div class="grid_1-1">
@@ -119,29 +125,17 @@ const timeline = [
       border-radius: 10px;
     }
 
-    .grid_1-1_wiifm {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
     .grid_1-1 {
       display: grid;
       grid-template-columns: 1fr;
       gap: 15px;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .wiifm_cards {
-      max-height: 420px;
-      overflow: scroll;
+      padding: 40px 0;
     }
 
     h3 {
       margin-bottom: 15px;
-      background:
-        linear-gradient(var(--black), var(--black)) padding-box,
-        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
-      border-bottom: 2px solid transparent;
     }
 
     h5 {
@@ -156,11 +150,37 @@ const timeline = [
       border-radius: 20px;
     }
 
+    .wiifm_div {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      overflow-x: auto;
+      align-items: stretch;
+      /* Sæt højden til fx 340px eller samme som billedet */
+      height: 600px;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px; /* lidt luft under cards */
+    }
+
+    .wiifm_image {
+      width: 100%;
+      height: 500px;
+    }
+
+    .wiifm_card {
+      min-width: 280px;
+      max-width: 320px;
+      height: 100%; /* Fylder hele containerens højde */
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
     @media screen and (min-width: 850px) {
-      .grid_1-1_wiifm {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
       .grid_1-1 {
         grid-template-columns: 1fr 1fr;
         align-items: center;
