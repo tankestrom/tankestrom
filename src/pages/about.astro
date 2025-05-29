@@ -5,6 +5,7 @@ import AboutHero from "../components/AboutHero.astro";
 import TimelineCard from "../components/TimelineCard.astro";
 import ProfileCard from "../components/ProfileCard.astro";
 import ActionCard from "../components/ActionCard.astro";
+import VolunteerCard from "../components/VolunteerCard.astro";
 
 const timeline = [
   {
@@ -175,138 +176,118 @@ const timeline = [
           Kontrast.
         </p>
       </ProfileCard>
-      <ProfileCard
-        img="/public/img/webp/anna-barbara.webp"
-        img_text="Anna-Barbara Weile"
-        name="Anna-Barbara"
-      >
-        <p>
-          Mit navn er Anna-Barbara Weile, og jeg er litteraturstuderende med et
-          stort engagement i dannelse, fællesskab og samfundsdebat.
-        </p>
-        <p>
-          Jeg blev student under coronapandemien, hvor jeg oplevede, hvor
-          vigtigt det er, at uddannelse ikke kun handler om karakterer, men også
-          om livsoplysning, nysgerrighed og fællesskab.
-        </p>
-        <p>
-          Jeg har skrevet debatindlæg om unges alkoholforbrug og om behovet for
-          sociale fællesskaber uden alkohol. Jeg skriver og deltager jævnligt i
-          samfundsdebatten, blandt andet i medier som Kristeligt Dagblad og
-          Kontrast.
-        </p>
-      </ProfileCard>
     </div>
-  </section>
-  <section class="action-section">
-    <h3>FØLG MED I FREMTIDENS LÆRING</h3>
-    <ActionCard
-      icon="/svg/mail-icon.svg"
-      icon_text="mail-ikon"
-      headline="Har du spørgsmål eller brug for mere information?"
-      text="Uanset om du vil vide mere om vores events, ønsker at booke TankeStrøm til undervisningen, eller har andre spørgsmål, er du altid velkommen til at sende os en mail. Vi svarer hurtigt og hjælper dig gerne videre!"
-      buttonLabel="SKRIV EN MAIL TIL OS"
-      buttonHref="mailto:connect@adviceagency.com"
-    />
-    <ActionCard
-      icon="/svg/instagram-logo.svg"
-      icon_text="instagram-logo"
-      headline="Følg os på Instagram"
-      text="Bliv en del af TankeStrøms fællesskab til dagligt, hvor vi deler inspirerende, inviterende og engagerende indhold. Her kan du få et indblik i vores events, spændende idéer og alt det, der gør læring og formidling levende. Kom med på rejsen - vi glæder os til at møde dig!"
-      class="reverse"
-      buttonLabel="FØLG OS PÅ INSTAGRAM"
-      buttonHref="https://www.instagram.com/tankestroemdk/"
-    />
-    <ActionCard
-      icon="/svg/spotify-logo.svg"
-      icon_text="spotify-logo"
-      headline="Lyt til TankeStrøms podcast på Spotify"
-      text="Tag dig tid til at fordybe dig i spændende samtaler og få eksperters unikke perspektiver på viden, læring og forståelse. Vores podcast inviterer dig med bag facaden, hvor komplekse idéer bliver gjort tilgængelige og inspirerende. Perfekt til dig, der elsker at udforske nye tanker og blive klogere - når det passer dig."
-      buttonLabel="LYT PÅ SPOTIFY"
-      buttonHref="https://open.spotify.com/show/1AH8kRvJYIjAS325C9SIhg?si=600a8328c04b4397"
-    />
+    <VolunteerCard buttonLabel="Kontakt os" buttonHref="/contact" />
+    <section class="action-section">
+      <h3>FØLG MED I FREMTIDENS LÆRING</h3>
+      <ActionCard
+        icon="/svg/mail-icon.svg"
+        icon_text="mail-ikon"
+        headline="Har du spørgsmål eller brug for mere information?"
+        text="Uanset om du vil vide mere om vores events, ønsker at booke TankeStrøm til undervisningen, eller har andre spørgsmål, er du altid velkommen til at sende os en mail. Vi svarer hurtigt og hjælper dig gerne videre!"
+        buttonLabel="SKRIV EN MAIL TIL OS"
+        buttonHref="mailto:connect@adviceagency.com"
+      />
+      <ActionCard
+        icon="/svg/instagram-logo.svg"
+        icon_text="instagram-logo"
+        headline="Følg os på Instagram"
+        text="Bliv en del af TankeStrøms fællesskab til dagligt, hvor vi deler inspirerende, inviterende og engagerende indhold. Her kan du få et indblik i vores events, spændende idéer og alt det, der gør læring og formidling levende. Kom med på rejsen - vi glæder os til at møde dig!"
+        class="reverse"
+        buttonLabel="FØLG OS PÅ INSTAGRAM"
+        buttonHref="https://www.instagram.com/tankestroemdk/"
+      />
+      <ActionCard
+        icon="/svg/spotify-logo.svg"
+        icon_text="spotify-logo"
+        headline="Lyt til TankeStrøms podcast på Spotify"
+        text="Tag dig tid til at fordybe dig i spændende samtaler og få eksperters unikke perspektiver på viden, læring og forståelse. Vores podcast inviterer dig med bag facaden, hvor komplekse idéer bliver gjort tilgængelige og inspirerende. Perfekt til dig, der elsker at udforske nye tanker og blive klogere - når det passer dig."
+        buttonLabel="LYT PÅ SPOTIFY"
+        buttonHref="https://open.spotify.com/show/1AH8kRvJYIjAS325C9SIhg?si=600a8328c04b4397"
+      />
+    </section>
+    <style>
+      section {
+        padding: 40px 15px;
+      }
+      h3 {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        background:
+          linear-gradient(var(--black), var(--black)) padding-box,
+          var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+        border-bottom: 2px solid transparent;
+      }
+      .vision-section img {
+        border-radius: 10px;
+      }
+      .grid_1-1 {
+        display: grid;
+        gap: 10px;
+      }
+      .order-1 {
+        order: -1;
+      }
+      .timeline-section h5 {
+        padding: 20px 0px 10px;
+      }
+      .founders p {
+        margin: 10px 0;
+      }
+      .auto-grid {
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+      }
+      @media screen and (min-width: 850px) {
+        section {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .grid_1-1 {
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 15px;
+        }
+        .order-1 {
+          order: 0;
+        }
+        .vision-section img {
+          width: 400px;
+          height: auto;
+          margin: 50px auto;
+          border-radius: 20px;
+        }
+        .vision-section p {
+          align-self: center;
+        }
+        .timeline {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px 250px;
+          max-width: 1200px;
+          grid-auto-rows: auto;
+          align-items: start;
+          margin: 0 auto;
+          position: relative; /* nødvendigt for ::before */
+        }
+        .timeline::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 10px;
+          background: var(--logo-grad);
+          z-index: 0;
+        }
+        .timeline-card {
+          max-width: 500px;
+        }
+      }
+    </style>
   </section>
 </Layout>
-<style>
-  section {
-    padding: 40px 15px;
-  }
-  h3 {
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    background:
-      linear-gradient(var(--black), var(--black)) padding-box,
-      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
-    border-bottom: 2px solid transparent;
-  }
-  .vision-section img {
-    border-radius: 10px;
-  }
-  .grid_1-1 {
-    display: grid;
-    gap: 10px;
-  }
-  .order-1 {
-    order: -1;
-  }
-  .timeline-section h5 {
-    padding: 20px 0px 10px;
-  }
-  .founders p {
-    margin: 10px 0;
-  }
-  .auto-grid {
-    display: grid;
-    gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
-  }
-  @media screen and (min-width: 850px) {
-    section {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .grid_1-1 {
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-    .order-1 {
-      order: 0;
-    }
-    .vision-section img {
-      width: 400px;
-      height: auto;
-      margin: 50px auto;
-      border-radius: 20px;
-    }
-    .vision-section p {
-      align-self: center;
-    }
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px 250px;
-      max-width: 1200px;
-      grid-auto-rows: auto;
-      align-items: start;
-      margin: 0 auto;
-      position: relative; /* nødvendigt for ::before */
-    }
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      background: var(--logo-grad);
-      z-index: 0;
-    }
-    .timeline-card {
-      max-width: 500px;
-    }
-  }
-</style>
