@@ -1,0 +1,36 @@
+---
+const { number, title, text } = Astro.props;
+---
+
+<article class="wiifm">
+  <h1 class="no">{number}</h1>
+  <h4>{title}</h4>
+  <p>{text}</p>
+</article>
+
+<style>
+  .wiifm {
+    margin: 10px 0 30px;
+    background-color: var(--box-grey);
+    padding: 15px 15px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 530px;
+
+    /* gradient border-trick */
+    background:
+      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border: 1px solid transparent;
+  }
+  .no {
+    text-align: end;
+    background: var(--logo-grad); /* lægger gradient bag teksten */
+    -webkit-background-clip: text; /* betyder brug gradienten som fill i tekst */
+    -webkit-text-fill-color: transparent; /* gør selve tekstfarven gennemsigtig, så kun gradienten vises */
+  }
+  @media screen and (min-width: 850px) {
+  }
+</style>

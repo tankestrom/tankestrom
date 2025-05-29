@@ -3,6 +3,35 @@ import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
 import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
+import WiifmCard from "../components/WiifmCard.astro";
+
+const timeline = [
+  {
+    number: "#01",
+    title: "Udvid din horisont - sammen med andre",
+    text: "Hos TankeStrøm bliver du en del af et fællesskab, hvor vi deler viden, stiller spørgsmål og lærer på tværs af fag og baggrunde. Du får ikke kun nye perspektiver – du får mennesker at spejle dig i.",
+  },
+  {
+    number: "#02",
+    title: "Få viden, du kan bruge i virkeligheden",
+    text: "Vi gør ny viden konkret, relevant og direkte anvendelig – både i dit studie, dit arbejdsliv og din egen udvikling. Her bliver tankemylder til tankeformidling.",
+  },
+  {
+    number: "#03",
+    title: "Byg noget op, der styrker dit CV og din selvtillid",
+    text: "Brug TankeStrøm som springbræt til projekter, erfaringer og samarbejder, der udvikler dine kompetencer, og skaber resultater du kan være stolt af.",
+  },
+  {
+    number: "#04",
+    title: "Lær noget, du ikke vidste, du havde brug for",
+    text: "Vi dykker ned i alt fra kvantefysik og kunst til etik og eksistens – og viser forbindelser, du ikke vidste fandtes. Hos os er det ok at undre sig og stille spørgsmål.",
+  },
+  {
+    number: "#05",
+    title: "Udvikl dig selv, i fællesskab med andre",
+    text: "Hos TankeStrøm bliver du en del af et fællesskab, der udfordrer dig intellektuelt og personligt. Her kan du vokse, lære og finde nye veje i dit liv og din karriere.",
+  },
+];
 ---
 
 <Layout>
@@ -32,6 +61,25 @@ import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
   </section>
 
   <IndexUpcomingEvents />
+
+  <section class="whats_in_it_for_me">
+    <div class="grid_1-1_wiifm">
+      <div>
+        <h3>5 GRUNDE TIL TANKESTRØM</h3>
+      </div>
+      <div class="wiifm_cards">
+        {
+          timeline.map((item) => (
+            <WiifmCard
+              number={item.number}
+              title={item.title}
+              text={item.text}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <section class="ts_i_undervisning">
     <div class="grid_1-1">
@@ -70,6 +118,11 @@ import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
     img {
       border-radius: 10px;
     }
+
+    .grid_1-1_wiifm {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
     .grid_1-1 {
       display: grid;
       grid-template-columns: 1fr;
@@ -77,6 +130,12 @@ import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
       max-width: 1200px;
       margin: 0 auto;
     }
+
+    .wiifm_cards {
+      max-height: 420px;
+      overflow: scroll;
+    }
+
     h3 {
       margin-bottom: 15px;
       background:
@@ -98,6 +157,10 @@ import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
     }
 
     @media screen and (min-width: 850px) {
+      .grid_1-1_wiifm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
       .grid_1-1 {
         grid-template-columns: 1fr 1fr;
         align-items: center;
