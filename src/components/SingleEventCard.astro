@@ -40,7 +40,11 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
         </div>
         <div class="room-container">
           <p class="event-room p-smaller">
-            {event.event_room ? event.event_room : "Lokation ikke angivet"}
+            {
+              event.event_room
+                ? event.event_room
+                : "Du bliver dirigeret fra indgangen"
+            }
           </p>
           <img src="/public/svg/door.svg" alt="Dør-ikon" />
         </div>
@@ -171,6 +175,9 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
     .room-container img {
       width: 40px;
       margin-right: 6px;
+    }
+    .bold {
+      font-weight: bold;
     }
     @media screen and (min-width: 850px) {
       .single-event-card {

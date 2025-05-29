@@ -92,6 +92,16 @@ body {
   font-style: normal;
 }
 
+/* Helvetica Neue bold */
+@font-face {
+  font-family: "helvetica_neuebold";
+  src:
+    url("../fonts/helveticaneuebold-webfont.woff2") format("woff2"),
+    url("../fonts/helveticaneuebold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 h1,
 h2,
 h3,
@@ -114,6 +124,11 @@ li {
 /* kursiv */
 .italic {
   font-style: italic;
+}
+/* bold */
+.bold {
+  font-family: "helvetica_neuebold";
+  font-weight: bold;
 }
 /* knap-fed */
 .btn-bold {
