@@ -2,10 +2,17 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout>
-  <IndexHero />
+  <IndexHero
+    buttonLabel1="ALLE EVENTS"
+    buttonHref1="/eventlist"
+    buttonLabel2="OM TANKESTRØM"
+    buttonHref2="/about"
+  />
+
   <section class="hvad_er_ts">
     <div class="grid_1-1">
       <div>
@@ -25,7 +32,7 @@ import IndexHero from "../components/IndexHero.astro";
           alene med dine indsigter Vi styker din inspiration, intellektuel tryghed
           og oplevelsen af fællesskab og refleksion.
         </p>
-        <h4>btn</h4>
+        <Button />
       </div>
     </div>
   </section>
@@ -54,7 +61,7 @@ import IndexHero from "../components/IndexHero.astro";
           src="/img/webp/ts_i_undervisning.webp"
           alt="Person, der står blandt en gymanieklasse og taler"
         />
-        <h4>btn</h4>
+        <Button />
       </div>
     </div>
   </section>

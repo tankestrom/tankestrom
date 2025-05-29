@@ -1,5 +1,6 @@
 ---
-
+import Button from "../components/Button.astro";
+const { buttonLabel1, buttonHref1, buttonLabel2, buttonHref2 } = Astro.props;
 ---
 
 <section class="hero">
@@ -19,11 +20,10 @@
         der løfter dig. <br /> Bliv en del af samtalen – og se, hvad der strømmer
         til dig.
       </p>
-    </div>
-
-    <div class="buttons">
-      <p>indsæt btn</p>
-      <p>indsæt btn</p>
+      <div class="buttons">
+        <Button href={buttonHref1} label={buttonLabel1} />
+        <Button href={buttonHref2} label={buttonLabel2} />
+      </div>
     </div>
   </div>
 </section>
@@ -34,7 +34,7 @@
     height: 100vh;
     overflow: hidden;
     max-width: 100%;
-    padding-left: 30px;
+    padding-left: 0px;
   }
 
   .hero-video {
@@ -101,14 +101,10 @@
     }
     /* Removed invalid font-size line */
 
-    .grid_1-1 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 300px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .hero {
+      padding-left: 30px;
+      padding-right: 0px;
     }
-
     .hero_txt {
       padding-bottom: 15px;
       max-width: 600px;
@@ -117,7 +113,7 @@
     }
 
     .buttons {
-      gap: 60px;
+      gap: 10px;
       justify-content: left;
       padding-top: 10px;
     }
