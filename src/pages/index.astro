@@ -2,7 +2,47 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
+import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
+import WiifmCard from "../components/WiifmCard.astro";
 
+const timeline = [
+  {
+    number: "#01",
+    title: "Udvid din horisont - sammen med andre",
+    text: "Hos TankeStrøm bliver du en del af et fællesskab, hvor vi deler viden, stiller spørgsmål og lærer på tværs af fag og baggrunde. Du får ikke kun nye perspektiver – du får mennesker at spejle dig i.",
+  },
+  {
+    number: "#02",
+    title: "Få viden, du kan bruge i virkeligheden",
+    text: "Vi gør ny viden konkret, relevant og direkte anvendelig – både i dit studie, dit arbejdsliv og din egen udvikling. Her bliver tankemylder til tankeformidling.",
+  },
+  {
+    number: "#03",
+    title: "Byg noget op, der styrker dit CV og din selvtillid",
+    text: "Brug TankeStrøm som springbræt til projekter, erfaringer og samarbejder, der udvikler dine kompetencer, og skaber resultater du kan være stolt af.",
+  },
+  {
+    number: "#04",
+    title: "Lær noget, du ikke vidste, du havde brug for",
+    text: "Vi dykker ned i alt fra kvantefysik og kunst til etik og eksistens – og viser forbindelser, du ikke vidste fandtes. Hos os er det ok at undre sig og stille spørgsmål.",
+  },
+  {
+    number: "#05",
+    title: "Udvikl dig selv, i fællesskab med andre",
+    text: "Hos TankeStrøm bliver du en del af et fællesskab, der udfordrer dig intellektuelt og personligt. Her kan du vokse, lære og finde nye veje i dit liv og din karriere.",
+  },
+];
+
+import Button from "../components/Button.astro";
+const {
+  buttonLabel,
+  buttonHref,
+  buttonLabel1,
+  buttonHref1,
+  buttonLabel2,
+  buttonHref2,
+} = Astro.props;
+---
 
 <Layout>
   <IndexHero
