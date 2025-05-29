@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import PriceBox from "./PriceBox.astro";
+
 const { event, buttonLabel, buttonHref, priceLabel } = Astro.props;
 
 const fallbackDate = new Date(event.event_date);
@@ -57,10 +57,13 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
               </p>
             )
           }
-          <img src="/public/svg/time.svg" alt="" />
+          <img src="/public/svg/time.svg" alt="Ur-ikon" />
         </div>
-        <div class="price-box">
-          <PriceBox label={priceLabel} />
+        <div class="price-container">
+          <p class="event-price p-smaller">
+            {event.event_price}
+          </p>
+          <img src="/public/svg/money.svg" alt="Penge-ikon" />
         </div>
         <div class="btn">
           <Button href={buttonHref} label={buttonLabel} />
@@ -147,7 +150,8 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
     }
     .location-container,
     .time-container,
-    .room-container {
+    .room-container,
+    .price-container {
       display: flex;
       gap: 10px;
       justify-content: space-between;
@@ -158,24 +162,27 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       padding: 20px 0 20px;
       align-items: center;
     }
-    .time-container {
+    .price-container {
       margin-bottom: 20px;
     }
     .location-container img,
     .time-container img,
-    .room-container img {
-      width: 50px;
+    .room-container img,
+    .price-container img {
+      width: 48px;
       height: auto;
       filter: brightness(0) saturate(100%) invert(100%);
     }
-    .time-container img {
+    .time-container img,
+    .price-container img {
       width: 30px;
       margin-right: 10px;
     }
     .room-container img {
-      width: 40px;
-      margin-right: 6px;
+      width: 46px;
+      margin-right: 4px;
     }
+
     .bold {
       font-weight: bold;
     }
