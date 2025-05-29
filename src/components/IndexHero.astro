@@ -8,10 +8,10 @@
   </video>
   <div class="overlay">
     <div class="title-wrapper">
-      <h3 class="en_tanke">ÉN TANKE STARTER <i>STRØMMEN</i></h3>
+      <h1 class="en_tanke">ÉN TANKE STARTER <i>STRØMMEN</i></h1>
     </div>
 
-    <div>
+    <div class="hero_txt">
       <p>
         Er du nysgerrig på verden – og på dig selv? <br /> Hos TankeStrøm mødes unge
         i fællesskaber, hvor viden, refleksion og personlig udvikling hænger sammen.
@@ -19,11 +19,11 @@
         der løfter dig. <br /> Bliv en del af samtalen – og se, hvad der strømmer
         til dig.
       </p>
+    </div>
 
-      <div class="buttons">
-        <p>indsæt btn</p>
-        <p>indsæt btn</p>
-      </div>
+    <div class="buttons">
+      <p>indsæt btn</p>
+      <p>indsæt btn</p>
     </div>
   </div>
 </section>
@@ -33,6 +33,8 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
+    max-width: 100%;
+    padding-left: 30px;
   }
 
   .hero-video {
@@ -66,20 +68,20 @@
     padding-top: 200px;
   }
   .en_tanke {
-    font-size: clamp(3rem, 5vw, 2rem); /* Mindre end h1 */
+    font-size: clamp(2.8rem, 5vw, 2rem); /* Mindre end h1 */
     text-align: center;
   }
 
-  p {
+  .hero_txt {
     padding-bottom: 30px;
-    text-align: left;
+    text-align: center;
     padding-top: 30;
   }
 
   .buttons {
     display: flex;
-    gap: 30px;
-    justify-content: left;
+    gap: 60px;
+    justify-content: center;
     padding-top: 30px;
   }
 
@@ -94,8 +96,8 @@
     }
 
     .en_tanke {
-      font-size: clamp(5rem, 5vw, 3rem); /* Større end h1 */
-      text-align: center;
+      font-size: clamp(4.7rem, 5vw, 3rem); /* Større end h1 */
+      text-align: left;
     }
     /* Removed invalid font-size line */
 
@@ -107,9 +109,17 @@
       margin: 0 auto;
     }
 
-    p {
+    .hero_txt {
+      padding-bottom: 15px;
+      max-width: 600px;
       max-width: 700px;
-      padding: 0px 30px;
+      text-align: left;
+    }
+
+    .buttons {
+      gap: 60px;
+      justify-content: left;
+      padding-top: 10px;
     }
   }
 </style>
