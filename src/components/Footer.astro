@@ -23,8 +23,12 @@
 
       <div class="contact">
         <h5>KONTAKT</h5>
-        <a href="tel:+4533422100">+45 33 42 21 00</a>
-        <a href="mailto:connect@adviceagency.com">connect@adviceagency.com</a>
+        <p>
+          <a href="tel:+4533422100">+45 33 42 21 00</a>
+        </p>
+        <p>
+          <a href="mailto:connect@adviceagency.com">connect@adviceagency.com</a>
+        </p>
       </div>
 
       <div class="socials">
@@ -64,11 +68,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 
   .newsletter input {
-    padding: 0.5rem;
+    padding: 0.7rem;
     background:
       linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
       var(--logo-grad) border-box;
@@ -77,18 +81,29 @@
     width: 250px;
     max-width: 100%;
     background-color: var(--box-grey);
+    color: var(--white);
   }
 
   .newsletter button {
-    padding: 0.5rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     background:
       linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
       var(--logo-grad) border-box;
     border: 1px solid transparent;
-    border-radius: 15px;
+    border-radius: 25px;
     background-color: var(--box-grey);
     color: var(--white);
     cursor: pointer;
+  }
+
+  .newsletter button:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    background-image: var(--logo-grad);
+    border: 1px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transform: scale(1.15);
+    transition: transform 0.2s;
   }
 
   .footer_grid {
@@ -111,7 +126,7 @@
     list-style: none;
   }
   .contact a {
-    display: block;
+    display: inline-block;
     margin-bottom: 0.25rem; /* afstand mellem kontaktlinks */
   }
 
@@ -130,7 +145,8 @@
     left: 0;
     bottom: -1px;
     width: 0%;
-    background: var(--white);
+    background-color: rgba(255, 255, 255, 0.07);
+    background-image: var(--logo-grad);
     transition: width 0.3s;
   }
 
