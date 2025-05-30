@@ -5,43 +5,149 @@ import Button from "../components/Button.astro";
 ---
 
 <Layout>
-  <h1 class="h1-1">SIDEN ER UNDER</h1>
-  <h1 class="h1-2">KONSTRUKTION</h1>
-  <div class="box">
-    <p>
-      Vi arbejder på at gøre denne side klar til lancering. Tjek tilbage snart
-      for opdateringer!
-    </p>
-    <Button label="Se alle events i ventetiden" href="/eventlist" />
+  <div class="page-header">
+    <h1>KONTAKT OS</h1>
+  </div>
+
+  <div class="grid_1-1">
+    <div class="text">
+      <h5>
+        Tøv ikke med at tage kontakt, hvis du har spørgsmål eller ønsker
+        yderligere information.
+      </h5>
+      <p>
+        Vi sætter en ære i at yde den bedst mulige service og står altid klar
+        til at hjælpe dig – uanset om du har generelle spørgsmål, brug for
+        vejledning, eller ønsker mere detaljeret information om vores produkter
+        og ydelser. Du er velkommen til at kontakte os via telefon, e-mail eller
+        kontaktformularen her på siden. Vi bestræber os på at besvare alle
+        henvendelser hurtigst muligt og ser frem til at høre fra dig. Din
+        henvendelse er vigtig for os – ingen spørgsmål er for små, og ingen
+        udfordringer er for store.
+      </p>
+    </div>
+    <div class="flex">
+      <div class="info">
+        <p><strong>MAIL</strong></p>
+        <p>
+          <a href="mailto:connect@tankestrom.com">connect@tankestrom.com</a>
+        </p>
+        <p>ADRESSE</p>
+        <a
+          href="https://www.google.com/maps/place/Gl.+Kongevej+3E,+1610+K%C3%B8benhavn/@55.6743546,12.5570587,17z/data=!3m1!4b1!4m6!3m5!1s0x4652530b7c25c6fd:0xe5711034ae102108!8m2!3d55.6743546!4d12.5596336!16s%2Fg%2F11s90qjwtw?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          >Gammel kongevej 3E<br />1610 København V<br />Danmark</a
+        >
+      </div>
+
+      <div class="info">
+        <p>TELEFON</p>
+        <p>
+          <a href="tel:+4529645541">+45 29 64 66 41</a>
+        </p>
+        <p>SOCIALE MEDIER</p>
+        <p>
+          <a href="https://www.facebook.com/profile.php?id=61554660120240"
+            >Facebook</a
+          ><br />
+          <a href="https://www.linkedin.com/home?originalSubdomain=dk"
+            >LinkedIn</a
+          ><br />
+          <a href="https://www.instagram.com/tankestroemdk/">Instagram</a>
+        </p>
+      </div>
+    </div>
+    <style></style>
   </div>
 </Layout>
+
 <style>
-  .h1-1 {
-    margin: 75px 15px 10px;
-    font-size: clamp(1rem, 9vw, 9.25rem); /* skalerer responsivt */
+  h1 {
+    padding-top: 150px;
+    margin-bottom: 20px;
+    background:
+      linear-gradient(var(--black), var(--black)) padding-box,
+      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+    border-bottom: 2px solid transparent;
   }
-  .h1-2 {
-    margin: 0 15px 30px;
-    font-size: clamp(1rem, 9vw, 9.25rem); /* skalerer responsivt */
-    text-align: end;
+
+  .page-header {
+    margin: 0 auto;
+    padding: 0 15px;
   }
-  .box {
-    margin: 0 15px 75px;
-    background-color: var(--box-grey);
-    padding: 15px 15px 30px;
-    border-radius: 20px;
+  strong {
+    font-weight: 700;
+  }
+
+  a {
+    /*--INDSÆT I STYLE - SEJ HOVER*/
+    color: var(--text-grey);
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    left: 0;
+    bottom: -1px;
+    width: 0%;
+    background-color: rgba(255, 255, 255, 0.07);
+    background-image: var(--logo-grad);
+    transition: width 0.3s;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin: 0 auto;
+    padding: 15px;
+    padding-bottom: 100px;
+  }
+
+  .flex {
+    display: flex;
+    gap: 100px;
+  }
+
+  .info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    background:
-      linear-gradient(var(--box-grey), var(--box-grey)) padding-box,
-      var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
-    border: 1px solid transparent;
+    gap: 20px;
   }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   @media screen and (min-width: 850px) {
-    .box {
-      margin: 80px auto 80px;
-      max-width: 600px;
+    h1 {
+      padding-top: 200px;
+      margin-bottom: 20px;
+    }
+
+    .page-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .grid_1-1 {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 1200px;
+      padding: 40px 0;
+      padding-bottom: 150px;
+    }
+
+    .flex {
+      gap: 150px;
     }
   }
 </style>
