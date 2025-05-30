@@ -54,29 +54,29 @@ const timeline = [
 <Layout>
   <AboutHero />
   <section class="vision-section">
-    <h3>VORES VISION</h3>
     <div class="grid_1-1">
-      <p>
-        TankeStrøm er et tværfagligt vidensfællesskab, der vil gøre videnskab
-        levende, relevant og tilgængelig for alle. Vi tror på, at
-        naturvidenskaben får sin største styrke, når den møder andre
-        fagligheder, og når viden deles åbent og i dialog. Inspireret af
-        højskolens værdier skaber vi et inkluderende fællesskab med plads til
-        faglig fordybelse, nysgerrighed og dannelse - hvor specialister og
-        generalister sammen udforsker og forstår verden bedre. Gennem podcasts,
-        live events, undervisning og digitale platforme inviterer vi alle til at
-        deltage aktivt og opleve, hvordan videnskab kan berige både hverdagen og
-        samfundet.
-      </p>
+      <div class="vision-div">
+        <h3>VORES VISION</h3>
+        <p>
+          TankeStrøm er et tværfagligt vidensfællesskab, der vil gøre videnskab
+          levende, relevant og tilgængelig for alle. Vi tror på, at
+          naturvidenskaben får sin største styrke, når den møder andre
+          fagligheder, og når viden deles åbent og i dialog. Inspireret af
+          højskolens værdier skaber vi et inkluderende fællesskab med plads til
+          faglig fordybelse, nysgerrighed og dannelse - hvor specialister og
+          generalister sammen udforsker og forstår verden bedre.
+        </p>
+        <p>
+          Gennem podcasts, live events, undervisning og digitale platforme
+          inviterer vi alle til at deltage aktivt og opleve, hvordan videnskab
+          kan berige både hverdagen og samfundet.
+        </p>
+      </div>
       <img src="/public/img/webp/vision.webp" alt="" class="order-1" />
     </div>
   </section>
   <section class="timeline-section">
     <h3>TANKESTRØMMENS BØLGER GENNEM ÅRENE</h3>
-    <h5>
-      Fra idé til fællesskab - se, hvordan TankeStrøm har udviklet sig til et
-      levende vidensnetværk i dag
-    </h5>
     <div class="timeline">
       {
         timeline.map((item, index) => (
@@ -92,22 +92,29 @@ const timeline = [
   </section>
   <section class="founders">
     <h3>UNDER STRØMMEN</h3>
-    <h5>Mød menneskerne bag Tankestrøm</h5>
-    <p>
-      TankeStrøm blev født en mild forårsaften i 2023 på Testrup Højskole, hvor
-      en lille gruppe elever og lærere samledes under tagryggen i
-      undervisningslokalet "Loftet".
-    </p>
-    <p>
-      Formålet var meget simpelt: at blive klogere - sammen. Hver måned blev et
-      nyt emne præsenteret af en lærer eller elev, og efterfølgende åbnede vi op
-      for fri diskussion, hvor tankerne virkelig kunne strømme frit.
-    </p>
-    <p>
-      Efter højskoleopholdet besluttede flere af os - Simon Løffler Puggaard,
-      Anna-Barbara Weile og Esben Rohan Christensen - at fortsætte arbejdet med
-      TankeStrøm.
-    </p>
+    <div class="grid_1-1 founders-grid">
+      <div class="col">
+        <h5>Mød menneskerne bag Tankestrøm</h5>
+        <p>
+          TankeStrøm blev født en mild forårsaften i 2023 på Testrup Højskole,
+          hvor en lille gruppe elever og lærere samledes under tagryggen i
+          undervisningslokalet "Loftet".
+        </p>
+        <p>
+          Formålet var meget simpelt: at blive klogere - sammen. Hver måned blev
+          et nyt emne præsenteret af en lærer eller elev, og efterfølgende
+          åbnede vi op for fri diskussion, hvor tankerne virkelig kunne strømme
+          frit.
+        </p>
+      </div>
+      <div class="col">
+        <p>
+          Efter højskoleopholdet besluttede flere af os - Simon Løffler
+          Puggaard, Anna-Barbara Weile og Esben Rohan Christensen - at fortsætte
+          arbejdet med TankeStrøm.
+        </p>
+      </div>
+    </div>
     <div class="auto-grid">
       <ProfileCard
         img="/public/img/webp/esben.webp"
@@ -208,11 +215,12 @@ const timeline = [
     </section>
     <style>
       section {
-        padding: 40px 15px;
+        padding: 50px 15px;
       }
       h3 {
         padding-bottom: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
         background:
           linear-gradient(var(--black), var(--black)) padding-box,
           var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
@@ -242,14 +250,21 @@ const timeline = [
       @media screen and (min-width: 850px) {
         section {
           max-width: 1200px;
-          margin: 0 auto;
+          margin: 60px auto;
+        }
+        h3 {
+          margin-top: 0;
         }
         .grid_1-1 {
           grid-template-columns: 1fr 1fr;
           gap: 50px;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 15px;
+          padding: 0;
+        }
+        .founders-grid {
+          margin-top: 30px;
+          margin-bottom: 50px;
         }
         .order-1 {
           order: 0;
@@ -257,7 +272,7 @@ const timeline = [
         .vision-section img {
           width: 400px;
           height: auto;
-          margin: 50px auto;
+          margin: 0px auto;
           border-radius: 20px;
         }
         .vision-section p {
@@ -286,6 +301,9 @@ const timeline = [
         }
         .timeline-card {
           max-width: 500px;
+        }
+        .action-section {
+          margin: 0 auto;
         }
       }
     </style>
