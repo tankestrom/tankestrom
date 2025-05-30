@@ -3,7 +3,7 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
-import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
+import UpcomingEventCard from "../components/UpcomingEventCard.astro";
 import WiifmCard from "../components/WiifmCard.astro";
 
 const timeline = [
@@ -56,13 +56,12 @@ const {
   <section class="hvad_er_ts">
     <div class="grid_1-1">
       <div>
-        <!-- indsæt image here -->
         <img
           src="/img/webp/hvad_er_ts.webp"
           alt="6 mennesker, der står i en cirkel og taler"
         />
       </div>
-      <div>
+      <div class="hvad_er_ts_div">
         <h3>HVAD ER TANKESTRØM?</h3>
         <p>
           TankeStrøm er et fællesskab, der på tværs af faglighed og interesser,
@@ -77,7 +76,7 @@ const {
     </div>
   </section>
 
-  <IndexUpcomingEvents />
+  <UpcomingEventCard />
 
   <div class="grid_1-1">
     <div>
@@ -106,10 +105,8 @@ const {
 
   <section class="ts_i_undervisning">
     <div class="grid_1-1">
-      <div>
+      <div class="ts_i_undervisning_div">
         <h3>TANKESTRØM I UNDERVISNINGEN?</h3>
-
-        <!-- <h5>Et fællesskab for nysgerrighed og eftertanke</h5> -->
         <p>
           TankeStrøm kan være din gæst – i klasselokalet, på højskolen eller til
           morgensamlingen.Vi skaber rum for refleksion, samtale og faglig
@@ -122,9 +119,7 @@ const {
         </p>
         <Button href="/kontakt" label="KONTAKT OS" />
       </div>
-
       <div>
-        <!-- indsæt image here -->
         <img
           src="/img/webp/ts_i_undervisning.webp"
           alt="Person, der står blandt en gymanieklasse og taler"
@@ -150,10 +145,25 @@ const {
       margin: 0 15px;
       justify-self: center;
       padding: 40px 0;
+      align-items: start;
+    }
+    .hvad_er_ts_div,
+    .ts_i_undervisning_div {
+      place-self: start;
+    }
+
+    .hvad_er_ts_div p,
+    .ts_i_undervisning_div p {
+      margin: 20px 0;
     }
 
     h3 {
-      margin-bottom: 15px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      background:
+        linear-gradient(var(--black), var(--black)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border-bottom: 2px solid transparent;
     }
 
     h5 {
