@@ -1,4 +1,5 @@
 ---
+//@ts-nocheck
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
@@ -146,7 +147,8 @@ const {
       grid-template-columns: 1fr;
       gap: 15px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 15px;
+      justify-self: center;
       padding: 40px 0;
     }
 
@@ -170,14 +172,9 @@ const {
       overflow-x: auto;
       align-items: stretch;
       /* Sæt højden til fx 340px eller samme som billedet */
-      height: 600px;
+      height: 400px;
       scroll-snap-type: x mandatory;
       padding-bottom: 10px; /* lidt luft under cards */
-    }
-
-    .wiifm_image {
-      width: 100%;
-      height: 500px;
     }
 
     .wiifm_card {
@@ -193,15 +190,22 @@ const {
       flex-direction: column;
       justify-content: flex-start;
     }
+    @media screen and (min-width: 500px) {
+      .wiifm_div {
+        height: 350px;
+      }
+    }
     @media screen and (min-width: 850px) {
       .grid_1-1 {
         grid-template-columns: 1fr 1fr;
         align-items: center;
         gap: 90px;
       }
-
       img {
         border-radius: 20px;
+      }
+      .wiifm_div {
+        height: 400px;
       }
     }
   </style>
