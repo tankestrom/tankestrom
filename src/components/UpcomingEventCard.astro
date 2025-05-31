@@ -46,9 +46,12 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       </div>
       <div class="flex-text-btn">
         <div class="col">
-          <p class="event-type">{event.event_type}</p>
-          <p class="organizer italic">{event.event_organizer}</p>
-          <p set:html={event.event_description.replace(/\n/g, "<br>")} />
+          <p class="event-type p-smaller">{event.event_type}</p>
+          <p class="organizer italic p-smaller">{event.event_organizer}</p>
+          <p
+            class="p-smaller"
+            set:html={event.event_description.replace(/\n/g, "<br>")}
+          />
         </div>
         <div class="btn-wrapper">
           <Button
@@ -121,15 +124,15 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
   }
   @media screen and (min-width: 850px) {
     .upcoming-event-card {
-      max-width: 1200px;
+      /* max-width: 1200px; */
       place-self: center;
       margin-top: 50px;
     }
     .wo-img {
-      padding: 0 70px;
+      padding: 0 30px;
     }
     img {
-      height: 400px;
+      height: 300px;
       object-fit: cover;
     }
     .flex-title-date {
@@ -164,7 +167,7 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
     .flex-text-btn {
       display: flex;
       justify-content: space-between;
-      gap: 100px;
+      gap: 50px;
     }
     .btn-wrapper {
       display: flex;
@@ -183,7 +186,10 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
   }
   @media screen and (min-width: 1100px) {
     .flex-text-btn {
-      gap: 200px;
+      gap: 120px;
+    }
+    .wo-img {
+      padding: 0 80px;
     }
   }
 </style>
