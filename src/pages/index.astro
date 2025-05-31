@@ -3,8 +3,26 @@
 import "../style/general.css";
 import Layout from "../layouts/Layout.astro";
 import IndexHero from "../components/IndexHero.astro";
-import IndexUpcomingEvents from "../components/IndexUpcomingEvents.astro";
+import UpcomingEventCard from "../components/UpcomingEventCard.astro";
 import WiifmCard from "../components/WiifmCard.astro";
+
+const url = "https://uvbakkgmltctqpkgfvdb.supabase.co/rest/v1/events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2YmFra2dtbHRjdHFwa2dmdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTgzMzMsImV4cCI6MjA2MzIzNDMzM30.OLsvC4Pl5HOP4Iwbeh4eHs68Iv0glsYj7Ff1xP4GFWg";
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+
+// Sortér efter første dato i multi_dates hvis den findes, ellers event_date
+data.sort((a, b) => {
+  const dateA = a.multi_dates?.[0] || a.event_date;
+  const dateB = b.multi_dates?.[0] || b.event_date;
+  return new Date(dateA) - new Date(dateB);
+});
 
 const timeline = [
   {
@@ -56,13 +74,12 @@ const {
   <section class="hvad_er_ts">
     <div class="grid_1-1">
       <div>
-        <!-- indsæt image here -->
         <img
           src="/img/webp/hvad_er_ts.webp"
           alt="6 mennesker, der står i en cirkel og taler"
         />
       </div>
-      <div>
+      <div class="hvad_er_ts_div">
         <h3>HVAD ER TANKESTRØM?</h3>
         <p>
           TankeStrøm er et fællesskab, der på tværs af faglighed og interesser,
@@ -77,7 +94,15 @@ const {
     </div>
   </section>
 
-  <IndexUpcomingEvents />
+  {
+    data.map((event) => (
+      <UpcomingEventCard
+        event={event}
+        buttonLabel="Læs mere"
+        buttonHref={`/events/${event.event_slug}`}
+      />
+    ))
+  }
 
   <div class="grid_1-1">
     <div>
@@ -106,10 +131,8 @@ const {
 
   <section class="ts_i_undervisning">
     <div class="grid_1-1">
-      <div>
+      <div class="ts_i_undervisning_div">
         <h3>TANKESTRØM I UNDERVISNINGEN?</h3>
-
-        <!-- <h5>Et fællesskab for nysgerrighed og eftertanke</h5> -->
         <p>
           TankeStrøm kan være din gæst – i klasselokalet, på højskolen eller til
           morgensamlingen.Vi skaber rum for refleksion, samtale og faglig
@@ -122,9 +145,7 @@ const {
         </p>
         <Button href="/kontakt" label="KONTAKT OS" />
       </div>
-
       <div>
-        <!-- indsæt image here -->
         <img
           src="/img/webp/ts_i_undervisning.webp"
           alt="Person, der står blandt en gymanieklasse og taler"
@@ -150,10 +171,25 @@ const {
       margin: 0 15px;
       justify-self: center;
       padding: 40px 0;
+      align-items: start;
+    }
+    .hvad_er_ts_div,
+    .ts_i_undervisning_div {
+      place-self: start;
+    }
+
+    .hvad_er_ts_div p,
+    .ts_i_undervisning_div p {
+      margin: 20px 0;
     }
 
     h3 {
-      margin-bottom: 15px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      background:
+        linear-gradient(var(--black), var(--black)) padding-box,
+        var(--logo-grad) border-box; /* 2 lag, padding-box indeni, border-box inkl border */
+      border-bottom: 2px solid transparent;
     }
 
     h5 {
