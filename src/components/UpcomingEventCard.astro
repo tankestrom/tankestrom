@@ -14,7 +14,7 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
 <div class="event-wrapper">
   <p class="event-type-tag">{event.event_type}</p>
   <article class="upcoming-event-card">
-    <img src="/public/img/placeholder-image.webp" alt="" />
+    <img src={`/${event.event_img}`} alt="" />
     <div class="wo-img">
       <div class="flex-title-date">
         <h3 class="event-title">{event.event_title}</h3>
@@ -142,6 +142,24 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
     .event-date-container {
       text-align: right;
       white-space: nowrap;
+    }
+    .multi-date-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%; /* vigtigt for skaleringsbaseret font */
+      gap: 10px;
+      text-align: right;
+    }
+    .multi-date-block .single-date {
+      flex: 1 1 0;
+      display: flex;
+    }
+    .multi-date-block .dates {
+      font-size: clamp(2rem, 2.5vh, 38px); /* responsiv højdebaseret skrift */
+      white-space: nowrap;
+      line-height: 1;
     }
     .flex-text-btn {
       display: flex;
