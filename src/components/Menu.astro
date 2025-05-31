@@ -31,6 +31,10 @@
         <li><a href="/ai_bot">AI-BOT</a></li>
         <li><a href="/contact">KONTAKT</a></li>
       </ul>
+      <h4>FØLG OS PÅ<br />SOCIALE MEDIER</h4>
+      <div class="flex-icons">
+        <img src="/public/svg/" alt="" />
+      </div>
     </div>
   </nav>
 </header>
@@ -125,7 +129,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--box-grey);
+    background: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,24 +143,29 @@
   }
   .menu ul {
     list-style: none;
-    padding: 0;
-    text-align: center;
+    padding-right: 15px;
     width: 100%;
   }
   .menu li {
-    font-size: 20px;
-    color: var(--white);
-    padding: 15px 0;
+    padding-bottom: 15px;
+    font-size: 25px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 100%;
-    justify-content: center;
+    justify-content: end;
   }
   .menu a {
+    font-family: "helvetica_neue_lt_std95_black";
     text-decoration: none;
-    color: var(--white);
+    color: var(--black);
     font-weight: bold;
+  }
+  .menu h4 {
+    color: var(--black);
+    text-align: right;
+    width: 100%;
+    margin-top: 50px;
+    padding-right: 15px;
   }
   .menu span {
     font-size: 20px;
@@ -164,13 +173,15 @@
 
   /* burger-linjernes classes der kaldes i js */
   .burger.active .line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
     transition: 0.25s linear;
+    background: var(--black);
   } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
 
   .burger.active .line:nth-child(2) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
     transition: 0.25s linear;
+    background: var(--black);
   } /* En linje drejer 45 grader, 5px til højre (X-aksen) og 5px nedad (Y-aksen)*/
 
   .burger.active span {
@@ -197,6 +208,16 @@
     .burger .line {
       width: 60px;
       height: 5px;
+    }
+    .menu ul {
+      padding-right: 50px;
+    }
+    .menu li {
+      font-size: 50px;
+    }
+    .menu h4 {
+      margin-top: 50px;
+      padding-right: 50px;
     }
   }
 </style>
