@@ -1,8 +1,10 @@
 ---
+//@ts-nocheck
 import Button from "./Button.astro";
 
 const { event, buttonLabel, buttonHref, priceLabel } = Astro.props;
 
+// Enkelt fallback-dato
 const fallbackDate = new Date(event.event_date);
 // event-dato med punktum
 const dayFormatted = String(fallbackDate.getDate()).padStart(2, "0") + ".";
@@ -10,15 +12,38 @@ const dayFormatted = String(fallbackDate.getDate()).padStart(2, "0") + ".";
 const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
   month: "long",
 });
+
+// Hvis der er flere datoer, formatter dem alle
+let formattedMultiDates = [];
+if (event.multi_dates && Array.isArray(event.multi_dates)) {
+  formattedMultiDates = event.multi_dates.map((d) => {
+    const date = new Date(d);
+    const day = String(date.getDate()).padStart(2, "0") + ".";
+    const month = date.toLocaleDateString("da-DK", {
+      month: "long",
+    });
+    return `${day} ${month}`;
+  });
+}
 ---
 
 <article class="single-event-card">
   <div class="event-img">
     <div class="overlay">
-      <div class="title-wrapper">
-        <h1 class="h-date">{dayFormatted}</h1>
-        <h1 class="h-month">{monthFormatted}</h1>
-      </div>
+      {
+        formattedMultiDates.length > 0 ? (
+          <div class="multi-date-overlay">
+            {formattedMultiDates.map((date) => (
+              <h1 class="date-line">{date}</h1>
+            ))}
+          </div>
+        ) : (
+          <div class="title-wrapper">
+            <h1 class="h-date">{dayFormatted}</h1>
+            <h1 class="h-month">{monthFormatted}</h1>
+          </div>
+        )
+      }
     </div>
   </div>
   <div class="wo-img">
@@ -128,6 +153,17 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       text-transform: uppercase;
       line-height: 1.05;
     }
+    .multi-date-overlay {
+      display: flex;
+      flex-direction: column;
+    }
+    .date-line {
+      padding: 0 10px;
+      font-size: clamp(20px, 10vw, 25px);
+    }
+    .date-line:first-child {
+      padding-top: 30px;
+    }
     .wo-img {
       padding: 20px;
       display: flex;
@@ -135,7 +171,7 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       gap: 13px;
     }
     h2 {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     .box-info {
       min-width: 300px;
@@ -182,14 +218,12 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
       width: 46px;
       margin-right: 4px;
     }
-
-    .bold {
-      font-weight: bold;
+    .full-date {
+      margin-bottom: 10px;
     }
     @media screen and (min-width: 850px) {
       .single-event-card {
         max-width: 1200px;
-        margin: 90px 15px;
         place-self: center;
       }
       .event-img {
@@ -199,6 +233,10 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
         padding-top: 80px;
         place-self: center;
       }
+      .date-line {
+        padding-left: 40px;
+        font-size: 50px;
+      }
       h1 {
         font-size: clamp(80px, 15vw, 148px);
       }
@@ -206,18 +244,25 @@ const monthFormatted = fallbackDate.toLocaleDateString("da-DK", {
         padding-left: 100px;
       }
       .wo-img {
-        padding: 50px 80px;
+        padding-top: 50px;
       }
       .flex {
         display: flex;
         gap: 20px;
       }
       .box-info {
-        min-width: 320px;
         padding: 20px;
       }
       .box-info p {
         font-size: 18px;
+      }
+    }
+    @media screen and (min-width: 1000px) {
+      .wo-img {
+        padding: 50px 80px;
+      }
+      .box-info {
+        min-width: 320px;
       }
     }
   </style>
