@@ -28,7 +28,10 @@ if (event.multi_dates && Array.isArray(event.multi_dates)) {
 ---
 
 <article class="single-event-card">
-  <div class="event-img">
+  <div
+    class="event-img"
+    style={`background-image: url('/${event.event_img || "img/webp/about-hero.webp"}')`}
+  >
     <div class="overlay">
       {
         formattedMultiDates.length > 0 ? (
@@ -125,7 +128,7 @@ if (event.multi_dates && Array.isArray(event.multi_dates)) {
     .event-img {
       position: relative;
       height: 40vh;
-      background-image: url("/img/webp/about-hero.webp");
+
       background-size: cover;
       background-position: center;
       border-radius: 20px 20px 0 0;
