@@ -6,6 +6,24 @@ import IndexHero from "../components/IndexHero.astro";
 import UpcomingEventCard from "../components/UpcomingEventCard.astro";
 import WiifmCard from "../components/WiifmCard.astro";
 
+const url = "https://uvbakkgmltctqpkgfvdb.supabase.co/rest/v1/events";
+const key =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2YmFra2dtbHRjdHFwa2dmdmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTgzMzMsImV4cCI6MjA2MzIzNDMzM30.OLsvC4Pl5HOP4Iwbeh4eHs68Iv0glsYj7Ff1xP4GFWg";
+const options = {
+  headers: {
+    apikey: key,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+
+// Sortér efter første dato i multi_dates hvis den findes, ellers event_date
+data.sort((a, b) => {
+  const dateA = a.multi_dates?.[0] || a.event_date;
+  const dateB = b.multi_dates?.[0] || b.event_date;
+  return new Date(dateA) - new Date(dateB);
+});
+
 const timeline = [
   {
     number: "#01",
@@ -76,7 +94,15 @@ const {
     </div>
   </section>
 
-  <UpcomingEventCard />
+  {
+    data.map((event) => (
+      <UpcomingEventCard
+        event={event}
+        buttonLabel="Læs mere"
+        buttonHref={`/events/${event.event_slug}`}
+      />
+    ))
+  }
 
   <div class="grid_1-1">
     <div>
