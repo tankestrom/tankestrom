@@ -24,6 +24,7 @@
       <span>MENU</span>
     </div>
     <div class="menu">
+      <h1 class="menu-heading">MENU</h1>
       <ul>
         <li><a href="/">FORSIDE</a></li>
         <li><a href="/eventlist">EVENTS</a></li>
@@ -33,10 +34,19 @@
       </ul>
       <h4>FØLG OS PÅ<br />SOCIALE MEDIER</h4>
       <div class="flex-icons">
-        <img src="/public/svg/" alt="Facebook logo" />
-        <img src="/public/svg/" alt="LinkedIn logo" />
-        <img src="/public/svg/" alt="Instagram logo" />
-        <img src="/public/svg/" alt="X logo" />
+        <a
+          href="https://www.facebook.com/people/TankeStr%C3%B8m/61554660120240/?locale=da_DK"
+        >
+          <img src="/public/svg/facebook-logo.svg" alt="Facebook logo" /></a
+        >
+        <a href="https://www.instagram.com/tankestroemdk/"
+          ><img src="/public/svg/instagram-logo1.svg" alt="Instagram logo" /></a
+        >
+        <a href=""
+          ><img src="/public/svg/linkedin-logo.svg" alt="LinkedIn logo" /></a
+        >
+
+        <a href=""><img src="/public/svg/x-logo.svg" alt="X logo" /></a>
       </div>
     </div>
   </nav>
@@ -136,7 +146,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     transform: translateY(-100%);
     transition: transform 0.5s ease-in-out;
     z-index: 20;
@@ -144,13 +154,19 @@
   .menu.active {
     transform: translateY(0);
   }
+  .menu-heading {
+    color: var(--black);
+    align-self: flex-start;
+    padding-left: 15px;
+    margin-bottom: 70px;
+  }
   .menu ul {
     list-style: none;
     padding-right: 15px;
     width: 100%;
   }
   .menu li {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     font-size: 25px;
     display: flex;
     justify-content: space-between;
@@ -163,6 +179,24 @@
     color: var(--black);
     font-weight: bold;
   }
+  .menu li a {
+    position: relative;
+  }
+
+  .menu li a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    background-image: var(--logo-grad);
+    transition: width 0.3s;
+  }
+
+  .menu li a:hover::after {
+    width: 100%;
+  }
   .menu h4 {
     color: var(--black);
     text-align: right;
@@ -172,6 +206,20 @@
   }
   .menu span {
     font-size: 20px;
+  }
+  .flex-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    padding-right: 15px;
+    justify-content: flex-end;
+  }
+  .flex-icons a:hover {
+    transform: scale(1.1);
+  }
+  .flex-icons img {
+    width: 30px;
+    height: 30px;
   }
 
   /* burger-linjernes classes der kaldes i js */
@@ -212,15 +260,31 @@
       width: 60px;
       height: 5px;
     }
+    .menu-heading {
+      padding-left: 50px;
+      margin-top: 20px;
+      margin-bottom: 0px;
+    }
     .menu ul {
       padding-right: 50px;
     }
     .menu li {
       font-size: 50px;
+      padding-bottom: 8px;
     }
     .menu h4 {
       margin-top: 50px;
       padding-right: 50px;
+    }
+    .flex-icons {
+      padding-right: 50px;
+    }
+    .flex-icons img {
+      width: 50px;
+      height: 50px;
+    }
+    .menu li a::after {
+      height: 4px;
     }
   }
 </style>
