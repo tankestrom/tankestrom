@@ -62,7 +62,7 @@ const monthFormatted = fallbackDate
               class="event-location p-smaller"
               set:html={event.event_location.replace(/\n/g, "<br>")}
             />
-            <img src="/public/svg/location.svg" alt="Lokationsikon" />
+            <img src="/svg/location.svg" alt="Lokationsikon" />
           </div>
           <div class="time-container">
             {
@@ -73,7 +73,7 @@ const monthFormatted = fallbackDate
                 </p>
               )
             }
-            <img src="/public/svg/time.svg" alt="" />
+            <img src="/svg/time.svg" alt="Tidsikon" />
           </div>
           <div class="btn">
             <Button href={buttonHref} label={buttonLabel} />

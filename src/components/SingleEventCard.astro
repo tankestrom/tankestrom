@@ -64,7 +64,7 @@ if (event.multi_dates && Array.isArray(event.multi_dates)) {
             class="event-location p-smaller"
             set:html={event.event_location.replace(/\n/g, "<br>")}
           />
-          <img src="/public/svg/location.svg" alt="Lokationsikon" />
+          <img src="/svg/location.svg" alt="Lokationsikon" />
         </div>
         <div class="room-container">
           <p class="event-room p-smaller">
@@ -74,7 +74,7 @@ if (event.multi_dates && Array.isArray(event.multi_dates)) {
                 : "Du bliver dirigeret fra indgangen"
             }
           </p>
-          <img src="/public/svg/door.svg" alt="Dør-ikon" />
+          <img src="/svg/door.svg" alt="Dør-ikon" />
         </div>
         <div class="time-container">
           {
@@ -85,13 +85,13 @@ if (event.multi_dates && Array.isArray(event.multi_dates)) {
               </p>
             )
           }
-          <img src="/public/svg/time.svg" alt="Ur-ikon" />
+          <img src="/svg/time.svg" alt="Ur-ikon" />
         </div>
         <div class="price-container">
           <p class="event-price p-smaller">
             {event.event_price}
           </p>
-          <img src="/public/svg/money.svg" alt="Penge-ikon" />
+          <img src="/svg/money.svg" alt="Penge-ikon" />
         </div>
         <div class="btn">
           <Button href={buttonHref} label={buttonLabel} />
