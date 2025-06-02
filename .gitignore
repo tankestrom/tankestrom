@@ -25,6 +25,3 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-#ignore all video files
-*.avi
-*.mp4
